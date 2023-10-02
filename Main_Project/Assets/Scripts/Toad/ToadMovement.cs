@@ -1,28 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ToadMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator anim;
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D collider2D;
-    private float dirX;
-    private float moveSpeed = 7f;
-    private float jumpForce = 19f;
+    float dirX;
     // Start is called before the first frame update
 
-    [SerializeField] private LayerMask jumpableGround;    
-
-    private enum MovementState {stay, shortJump, highJump, fall, tongue};
+    private enum MovementState {stay, jump, tongue, fall };
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider2D = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,7 +24,7 @@ public class ToadMovement : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         if (rb != null)
         {
-            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(dirX * 7f, rb.velocity.y);
         }
         else
         {
@@ -39,9 +32,9 @@ public class ToadMovement : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, 14f);
         }
         AnimationUpdate();
 
@@ -53,12 +46,12 @@ public class ToadMovement : MonoBehaviour
         MovementState state;
         if (dirX > 0f)
         {
-            state = MovementState.shortJump;
+            state = MovementState.jump;
             spriteRenderer.flipX = true;
         }
         else if (dirX < 0f)
         {
-            state = MovementState.shortJump;
+            state = MovementState.jump;
             spriteRenderer.flipX = false;
         }
         else
@@ -69,17 +62,7 @@ public class ToadMovement : MonoBehaviour
 
         if(rb.velocity.y > .1f)
         {
-            state = MovementState.highJump;
-        }
-        else if(rb.velocity.y < -.1f)
-        {
-            state = MovementState.fall;
-        }
-        animator.SetInteger("state", (int)state);
-    }
 
-    private bool IsGrounded()
-    {
-        return Physics2D.BoxCast(collider2D.bounds.center, collider2D.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        }
     }
 }
