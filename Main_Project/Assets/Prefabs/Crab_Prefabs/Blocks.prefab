@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2363354346768774252}
   - component: {fileID: 7660935105519872489}
+  - component: {fileID: 5352362458353593554}
   m_Layer: 0
   m_Name: Blocks
   m_TagString: Untagged
@@ -85,6 +86,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5352362458353593554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254343012667282379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3acc36affefb548a08c2a7beef87ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6469700726353859977
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +109,7 @@ GameObject:
   - component: {fileID: 4540776059039333996}
   - component: {fileID: 2090141015726667482}
   - component: {fileID: 2006669975532798719}
-  - component: {fileID: 1253054234453651647}
+  - component: {fileID: 8537269224714063502}
   m_Layer: 0
   m_Name: bricks_20
   m_TagString: Untagged
@@ -216,30 +229,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1253054234453651647
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &8537269224714063502
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6469700726353859977}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3acc36affefb548a08c2a7beef87ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
