@@ -21,7 +21,7 @@ public class Teleport : MonoBehaviour
     {
         if (collision.CompareTag("Toad"))
         {
-            if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+            if (Vector2.Distance(player.transform.position, transform.position) > 0.5f)
             {
                 StartCoroutine(PortalIn());
             }
