@@ -9,7 +9,15 @@ public class PaddleController : MonoBehaviour
     private float inputValue;
 
     public float moveSpeed = 25;
+
     private Vector2 direction;
+
+     Vector2 startPosition;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,5 +38,11 @@ public class PaddleController : MonoBehaviour
 
         rigidBody2D.AddForce(direction * moveSpeed * Time.deltaTime * 100);
 
+    }
+
+    public void ResetPaddle()
+    {
+        transform.position = startPosition;
+        rigidBody2D.velocity = Vector2.zero;
     }
 }

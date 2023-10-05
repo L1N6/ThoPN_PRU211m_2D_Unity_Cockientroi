@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Trap
-  - Toad
   - Ball
+  - DeadZone
+  - Toad
+  - Wall
   layers:
   - Default
   - TransparentFX
