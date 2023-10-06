@@ -8,6 +8,7 @@ TagManager:
   - DeadZone
   - Toad
   - Wall
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
