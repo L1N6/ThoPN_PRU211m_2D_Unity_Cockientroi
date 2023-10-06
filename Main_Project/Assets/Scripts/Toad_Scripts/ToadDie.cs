@@ -33,7 +33,6 @@ public class ToadDie : MonoBehaviour
 
     private void Die()
     {
-        rigidbody2D.bodyType = RigidbodyType2D.Static;
         animation.SetTrigger("death");
         StartCoroutine(AfterDie(0.5f));
     }
@@ -43,6 +42,7 @@ public class ToadDie : MonoBehaviour
         rigidbody2D.simulated = false;
         yield return new WaitForSeconds(duration);
         transform.position = StartPosition;
+        yield return new WaitForSeconds(duration);
         animation.Play("StayToad");
         rigidbody2D.simulated = true;
         rigidbody2D.bodyType = RigidbodyType2D.Dynamic;

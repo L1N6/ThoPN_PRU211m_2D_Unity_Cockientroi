@@ -6,8 +6,8 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     GameObject player;
-    Animator animation;
-    Rigidbody2D rigidbody2D;
+    new Animator animation;
+    new Rigidbody2D rigidbody2D;
     ToadDie toadDie;
     Vector2 checkPointPosition;
     public Transform destination;
