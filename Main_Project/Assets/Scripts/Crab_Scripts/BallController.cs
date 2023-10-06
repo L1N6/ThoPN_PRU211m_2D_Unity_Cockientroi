@@ -19,7 +19,7 @@ public class BallController : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-
+        
         ResetBall(); 
     }
 
@@ -46,6 +46,7 @@ public class BallController : MonoBehaviour
             audioSource.clip = wallSound;
             audioSource.Play();
         }
+        
     }
 
     public void ResetBall()

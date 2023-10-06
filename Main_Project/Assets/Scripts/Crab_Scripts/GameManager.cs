@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int lives = 3;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -38,6 +39,10 @@ public class GameManager : MonoBehaviour
         if(transform.childCount <= 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            audioSource.Play();
         }
     }
 }
