@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ToadDie : MonoBehaviour
 {
+    Vector2 StartPosition;
     private new Rigidbody2D rigidbody2D;
     private new Animator animation;
     // Start is called before the first frame update
     void Start()
     {
+        StartPosition = transform.position;
         rigidbody2D = GetComponent<Rigidbody2D>(); 
         animation = GetComponent<Animator>();
     }
@@ -23,14 +26,25 @@ public class ToadDie : MonoBehaviour
         }
     }
 
+    public void UpdateCheckPoint(Vector2 checkPoint)
+    {
+        StartPosition = checkPoint;
+    }
+
     private void Die()
     {
         rigidbody2D.bodyType = RigidbodyType2D.Static;
         animation.SetTrigger("death");
+        StartCoroutine(AfterDie(0.5f));
     }
      
-    private void RestartLevel()
+    IEnumerator AfterDie(float duration)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        rigidbody2D.simulated = false;
+        yield return new WaitForSeconds(duration);
+        transform.position = StartPosition;
+        animation.Play("StayToad");
+        rigidbody2D.simulated = true;
+        rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
     }
 }
