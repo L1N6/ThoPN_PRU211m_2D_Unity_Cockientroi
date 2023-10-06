@@ -24,13 +24,10 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Toad"))
+        if (collision.CompareTag("Toad") && Vector2.Distance(player.transform.position, transform.position) > 0.5f)
         {
-            if (Vector2.Distance(player.transform.position, transform.position) > 0.5f)
-            {
-                StartCoroutine(PortalIn());
-                toadDie.UpdateCheckPoint(respawnPosition.position);
-            }
+            StartCoroutine(PortalIn());
+            toadDie.UpdateCheckPoint(respawnPosition.position);
         }
     }
 
@@ -41,6 +38,7 @@ public class Teleport : MonoBehaviour
         StartCoroutine(MoveInPortal());
         yield return new WaitForSeconds(0.5f);
         player.transform.position = checkPointPosition;
+        rigidbody2D.velocity = Vector2.zero;
         animation.Play("Portal_Out");
         yield return new WaitForSeconds(1f);
         animation.Play("StayToad");
@@ -49,12 +47,11 @@ public class Teleport : MonoBehaviour
 
     IEnumerator MoveInPortal()
     {
-        float timer = 0;
-        while (timer < 0.5f)
+        for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
         {
             player.transform.position = Vector2.MoveTowards(player.transform.position, transform.position, 3 * Time.deltaTime);
+            Debug.Log(timer);
             yield return new WaitForEndOfFrame();
-            timer += Time.deltaTime;
         }
     }
 }
