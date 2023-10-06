@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public int lives = 3;
 
-    
+    private void Start()
+    {
+        Debug.Log("childcount " + transform.childCount);
+    }
 
     public void LosseHealth()
     {
