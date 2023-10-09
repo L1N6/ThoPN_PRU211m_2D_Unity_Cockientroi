@@ -9,6 +9,8 @@ TagManager:
   - Toad
   - Wall
   - CheckPoint
+  - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX

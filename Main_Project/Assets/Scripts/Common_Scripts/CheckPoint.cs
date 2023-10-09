@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
     public Transform respawnPosition;
     private new Animator animation;
 
+
     private void Start()
     {
         toadDie = GameObject.FindGameObjectWithTag("Toad").GetComponent<ToadDie>();
@@ -21,7 +22,10 @@ public class CheckPoint : MonoBehaviour
         if (collision.CompareTag("Toad"))
         {
             toadDie.UpdateCheckPoint(respawnPosition.position);
-            animation.SetBool("ActiveCheckPoint", true);
+            if (respawnPosition.gameObject.CompareTag("CheckPoint"))
+            {
+                animation.SetBool("ActiveCheckPoint", true);
+            }
         }
     }
 }
