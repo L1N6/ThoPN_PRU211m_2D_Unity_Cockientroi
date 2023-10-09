@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    ToadDie toadDie;
-    public Transform respawnPosition;
-    private new Animator animation;
 
+    private PlayerRespawn playerRespawn;
+    public GameObject greenFlag;
+    public GameObject redFlag;
     private void Start()
     {
-        toadDie = GameObject.FindGameObjectWithTag("Toad").GetComponent<ToadDie>();
-        animation = GetComponent<Animator>();
+        playerRespawn = GameObject.Find("Player").GetComponent<PlayerRespawn>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Toad"))
+        if (collision.gameObject.name == "Player")
         {
-            toadDie.UpdateCheckPoint(respawnPosition.position);
-            animation.SetBool("ActiveCheckPoint", true);
+            playerRespawn.respawnPoint = transform.position;
+            greenFlag.SetActive(true);
+            redFlag.SetActive(false);
         }
     }
+
 }
