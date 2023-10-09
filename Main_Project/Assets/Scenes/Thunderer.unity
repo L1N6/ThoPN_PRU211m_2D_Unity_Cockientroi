@@ -14765,6 +14765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73b7649f1ca3ca42825b8269590ca89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFlipped: 0
 --- !u!61 &2051836761
 BoxCollider2D:
   m_ObjectHideFlags: 0
