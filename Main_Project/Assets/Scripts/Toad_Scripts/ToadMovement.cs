@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class ToadMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+
+    public Rigidbody2D rb; 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D collider2D;
+    private new BoxCollider2D collider2D;
     private float dirX;
     private float moveSpeed = 7f;
     private float jumpForce = 19f;
@@ -19,7 +20,9 @@ public class ToadMovement : MonoBehaviour
     private enum MovementState {stay, shortJump, highJump, fall, tongue};
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic; 
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
