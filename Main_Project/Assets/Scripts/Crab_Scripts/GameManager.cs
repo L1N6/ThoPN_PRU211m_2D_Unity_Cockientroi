@@ -1,18 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int lives = 3;
+    public AudioSource audioSource;
+
+    private void Start()
     {
-        
+        Debug.Log("childcount " + transform.childCount);
+        audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LosseHealth()
     {
-        
+        lives--;
+
+        if(lives <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            ResetLevel();
+        }
+    }
+
+    private void ResetLevel()
+    {
+        FindObjectOfType<BallController>().ResetBall();
+        FindObjectOfType<PaddleController>().ResetPaddle();
+    }
+
+    public void CheckCrabGameComplete()
+    {
+
+        if (transform.childCount <= 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
