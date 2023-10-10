@@ -13,8 +13,7 @@ public class ToadMovement : MonoBehaviour
     private float dirX;
     private float moveSpeed = 7f;
     public float jumpForce = 19f;
-    // Start is called before the first frame update
-
+    
     [SerializeField] private LayerMask jumpableGround;
     
 

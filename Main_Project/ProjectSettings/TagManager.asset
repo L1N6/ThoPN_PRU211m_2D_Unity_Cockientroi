@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - Trap
   - Enemy
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - Grounded
   - 
   - 
   - 
@@ -46,19 +47,19 @@ TagManager:
   - 
   m_SortingLayers:
   - name: New Layer 1
-    uniqueID: 2074289133
+    uniqueID: 3709430935
     locked: 0
   - name: New Layer 2
-    uniqueID: 848719139
+    uniqueID: 1996413203
     locked: 0
   - name: BehindBackground
-    uniqueID: 3246140153
+    uniqueID: 1730136015
     locked: 0
   - name: Background
-    uniqueID: 4053375947
+    uniqueID: 3655200419
     locked: 0
   - name: Main
-    uniqueID: 2113320953
+    uniqueID: 708623337
     locked: 0
   - name: Default
     uniqueID: 0

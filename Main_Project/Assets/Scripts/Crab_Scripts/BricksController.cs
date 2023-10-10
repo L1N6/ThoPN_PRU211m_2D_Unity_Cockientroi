@@ -13,7 +13,7 @@ public class BricksController : MonoBehaviour
 
             Destroy(transform.gameObject);
 
-            FindObjectOfType<GameManager>().CheckCrabGameComplete();
+            FindObjectOfType<CrabGameManager>().CheckCrabGameComplete();
 
             
 
