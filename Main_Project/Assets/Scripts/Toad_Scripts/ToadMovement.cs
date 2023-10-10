@@ -12,11 +12,10 @@ public class ToadMovement : MonoBehaviour
     private new BoxCollider2D collider2D;
     private float dirX;
     private float moveSpeed = 7f;
-    private float jumpForce = 19f;
-    // Start is called before the first frame update
-    public string secens;
+    public float jumpForce = 19f;
 
     [SerializeField] private LayerMask jumpableGround;
+    
 
     private enum MovementState { stay, shortJump, highJump, fall, tongue };
     void Start()
@@ -27,10 +26,6 @@ public class ToadMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-        if (secens == "Tiger")
-        {
-            jumpForce = 14f;
-        }
     }
 
     // Update is called once per frame
@@ -83,6 +78,11 @@ public class ToadMovement : MonoBehaviour
         {
             state = MovementState.fall;
         }
+        else if (rb.velocity.y < -.1f)
+        {
+            state = MovementState.fall;
+        }
+
         animator.SetInteger("state", (int)state);
     }
 
