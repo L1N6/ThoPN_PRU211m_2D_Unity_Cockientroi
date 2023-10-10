@@ -12,7 +12,7 @@ public class ToadMovement : MonoBehaviour
     private new BoxCollider2D collider2D;
     private float dirX;
     private float moveSpeed = 7f;
-    private float jumpForce = 19f;
+    public float jumpForce = 19f;
     // Start is called before the first frame update
 
     [SerializeField] private LayerMask jumpableGround;
