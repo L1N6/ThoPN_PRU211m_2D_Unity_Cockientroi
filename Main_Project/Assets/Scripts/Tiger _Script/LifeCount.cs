@@ -34,7 +34,7 @@ public class LifeCount : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Death"))
+        if (collision.gameObject.CompareTag("Death"))
         {
             LoseLife();
         }

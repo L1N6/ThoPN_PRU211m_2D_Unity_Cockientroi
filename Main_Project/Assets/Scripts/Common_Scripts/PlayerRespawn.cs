@@ -9,7 +9,6 @@ public class PlayerRespawn : MonoBehaviour
 
     private void RespawnNow()
     {
-
         transform.position = respawnPoint;
     }
 
