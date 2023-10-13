@@ -29,6 +29,7 @@ public class BallController : MonoBehaviour
         {
             audioSource.clip = deadZoneSound;
             audioSource.Play();
+            
             FindObjectOfType<CrabGameManager>().LosseHealth();
         }
         if (collision.gameObject.GetComponent<PaddleController>())
