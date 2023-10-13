@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4559419367749917097}
   - component: {fileID: 2028226117078212951}
   - component: {fileID: 6748798906888150676}
-  - component: {fileID: 4917760283461766575}
   - component: {fileID: 6608087311277539817}
   m_Layer: 0
   m_Name: Toad_Green_Brown
@@ -198,10 +197,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4613394750545013114}
-  scens: 
+  jumpForce: 19
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
+  dialogueUI: {fileID: 0}
 --- !u!114 &6748798906888150676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,19 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b4383f5aee00740a9e61fd5e2fbed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4917760283461766575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2450239135103828062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3e3cb04e59a9e4c9d8677a99ccff7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPoint: {x: -26, y: -2.6, z: 0}
 --- !u!114 &6608087311277539817
 MonoBehaviour:
   m_ObjectHideFlags: 0

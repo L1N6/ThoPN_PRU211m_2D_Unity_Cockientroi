@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3712078263372097224}
   - component: {fileID: 8253270090817847233}
   - component: {fileID: 5926249443884904593}
+  - component: {fileID: -4361015311284298875}
+  - component: {fileID: -835602706661986740}
   m_Layer: 0
   m_Name: Crab
   m_TagString: Untagged
@@ -94,7 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2113320953
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1041451190, guid: 95911994956201a45a3b69d6bd3beabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,3 +154,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3841858, y: 1.15308}
   m_EdgeRadius: 0
+--- !u!114 &-4361015311284298875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952633910333634348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5860164054ede746aa4ab5ebc3061d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: cd27d2386c166ea47bb93821c22e095c, type: 2}
+--- !u!114 &-835602706661986740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952633910333634348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8ee8a2e157f9e44834a0add828fb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: cd27d2386c166ea47bb93821c22e095c, type: 2}
+  events:
+  - name: Yes
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: No
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
