@@ -13,8 +13,14 @@ public class ToadMovement : MonoBehaviour
     private float dirX;
     private float moveSpeed = 7f;
     public float jumpForce = 19f;
+
     
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private DialogueUI dialogueUI;
+
+    public DialogueUI DialogueUI => dialogueUI;
+
+    public IInteractable Interactable { get; set; }
     
 
     private enum MovementState { stay, shortJump, highJump, fall, tongue };
@@ -31,6 +37,11 @@ public class ToadMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(dialogueUI.IsOpen)
+        {
+            return;
+        }
+
         dirX = Input.GetAxisRaw("Horizontal");
         if (rb != null)
         {
@@ -48,6 +59,10 @@ public class ToadMovement : MonoBehaviour
         }
         AnimationUpdate();
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            Interactable?.Interact(this);
+        }
 
     }
 
