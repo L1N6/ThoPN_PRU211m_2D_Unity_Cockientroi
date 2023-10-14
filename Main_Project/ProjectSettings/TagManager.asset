@@ -12,6 +12,7 @@ TagManager:
   - Trap
   - Enemy
   - Death
+  - Tree
   layers:
   - Default
   - TransparentFX
