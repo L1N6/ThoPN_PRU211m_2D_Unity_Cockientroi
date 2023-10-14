@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public int nextID = 0;
     int idChangeValue = 1;
     public float speed;
+    public string name;
 
 
     private void Reset()
@@ -34,11 +35,11 @@ public class EnemyAI : MonoBehaviour
         waypoints.transform.position = root.transform.position;
         //Create two points (gameobject) and reset their position to waypoints objects
         //Make the points children of waypoint object
-        GameObject p1 = new GameObject("Point1"); 
-        p1.transform.SetParent(waypoints.transform); 
+        GameObject p1 = new GameObject("Point1");
+        p1.transform.SetParent(waypoints.transform);
         p1.transform.position = root.transform.position;
-        GameObject p2 = new GameObject("Point2"); 
-        p2.transform.SetParent(waypoints.transform); 
+        GameObject p2 = new GameObject("Point2");
+        p2.transform.SetParent(waypoints.transform);
         p2.transform.position = root.transform.position;
 
         //Add các point vào list
@@ -57,10 +58,13 @@ public class EnemyAI : MonoBehaviour
         //Get the next Point transform
         Transform goalPoint = points[nextID];
         //Flip the enemy transform to look into the point's direction
-        if (goalPoint.transform.position.x > transform.position.x)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else
-            transform.localScale = new Vector3(1, 1, 1);
+        if (name != "Map")
+        {
+            if (goalPoint.transform.position.x > transform.position.x)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else
+                transform.localScale = new Vector3(1, 1, 1);
+        }
         //Move the enemy towards the goal point
         transform.position = Vector2.MoveTowards(transform.position, goalPoint.position, speed * Time.deltaTime);
         //Check vịt trí của enemies giữa goalPoint và nextID

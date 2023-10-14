@@ -50,7 +50,6 @@ public class Teleport : MonoBehaviour
         for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
         {
             player.transform.position = Vector2.MoveTowards(player.transform.position, transform.position, 3 * Time.deltaTime);
-            Debug.Log(timer);
             yield return new WaitForEndOfFrame();
         }
     }
