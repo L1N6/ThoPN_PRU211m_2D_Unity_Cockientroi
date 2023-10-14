@@ -49,6 +49,7 @@ public class ResponseHandle : MonoBehaviour
             responseBoxHeight += responseButtonTemplate.sizeDelta.y;
 
         }
+        
 
         responseBox.sizeDelta = new Vector2(responseBox.sizeDelta.x, responseBoxHeight);
         responseBox.gameObject.SetActive(true);
@@ -64,7 +65,19 @@ public class ResponseHandle : MonoBehaviour
 
         if(responseEvents != null && responseIndex <= responseEvents.Length)
         {
+            Debug.Log("Picked Response: " + responseEvents[responseIndex].name);
             responseEvents[responseIndex].OnPickedResponse.Invoke();
+        }
+
+        responseEvents= null;
+
+        if (response.Dialogue)
+        {
+            dialogueUI.showDialogue(response.Dialogue);
+        }
+        else
+        {
+            dialogueUI.CloseDialogueBox();
         }
 
         tempResponseButtons.Clear();

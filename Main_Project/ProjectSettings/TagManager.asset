@@ -12,6 +12,11 @@ TagManager:
   - Trap
   - Enemy
   - Death
+  - Crab
+  - Fox
+  - Bee
+  - Tiger
+  - Bear
   layers:
   - Default
   - TransparentFX
@@ -20,7 +25,7 @@ TagManager:
   - Water
   - UI
   - Grounded
-  - 
+  - Canvas
   - 
   - 
   - 
