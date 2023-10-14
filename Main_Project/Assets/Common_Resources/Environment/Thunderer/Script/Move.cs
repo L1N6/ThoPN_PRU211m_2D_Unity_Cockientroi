@@ -75,56 +75,5 @@ public class Move : MonoBehaviour
                 isFlipped = true;
             }
 
-            animator.SetBool("run", true);
-
-            position.x += horizontalInput * MoveUnitsPerSecond *
-                Time.deltaTime;
-        }
-        else if (verticalInput != 0)
-        {
-
-            animator.SetBool("run", true);
-
-            position.y += verticalInput * MoveUnitsPerSecond *
-                Time.deltaTime;
-        }
-        else
-        {
-            animator.SetBool("run", false);
-        }
-
-        // move character
-        transform.position = position;
-        ClampInScreen();
-    }
-
-    /// <summary>
-    /// Clamps the character in the screen
-    /// </summary>
-    void ClampInScreen()
-    {
-        Vector3 position = transform.position;
-
-        // clamp horizontally
-        if (position.x - colliderHalfWidth < ScreenUtils.ScreenLeft)
-        {
-            position.x = ScreenUtils.ScreenLeft + colliderHalfWidth;
-        }
-        else if (position.x + colliderHalfWidth > ScreenUtils.ScreenRight)
-        {
-            position.x = ScreenUtils.ScreenRight - colliderHalfWidth;
-        }
-
-        // clamp vertically
-        if (position.y + colliderHalfHeight > ScreenUtils.ScreenTop)
-        {
-            position.y = ScreenUtils.ScreenTop - colliderHalfHeight;
-        }
-        else if (position.y - colliderHalfHeight < ScreenUtils.ScreenBottom)
-        {
-            position.y = ScreenUtils.ScreenBottom + colliderHalfHeight;
-        }
-
-        transform.position = position;
     }
 }
