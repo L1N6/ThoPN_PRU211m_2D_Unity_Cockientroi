@@ -5,21 +5,23 @@ public class Move : MonoBehaviour
 {
     // Start is called before the first frame update
     // saved for efficiency
+    private GameObject attackArea = default;
     float colliderHalfWidth;
     float colliderHalfHeight;
     public Transform player;
-    public bool isFlipped = false;
-
+    bool isFlipped = false;
+    [SerializeField] LayerMask layer;
     Animator animator;
     // movement support
     const float MoveUnitsPerSecond = 5;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     /// <summary>
 	/// Start is called before the first frame update
 	/// </summary>	
     void Start()
     {
-        //rb.GetComponent<Rigidbody2D>();
+        attackArea = transform.GetChild(0).gameObject;
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         isFlipped = false;
         // save for efficiency
@@ -42,12 +44,18 @@ public class Move : MonoBehaviour
 
     public bool isGrounded()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 3f, 1 << 8);
+        Vector3 rayCastPosition = transform.position;
+        rayCastPosition.y += 0.1f;
+        RaycastHit2D hitInfo = Physics2D.Raycast(rayCastPosition, -Vector2.up, 0.1f, layer);
         if (hitInfo.collider != null)
         {
+            Debug.DrawRay(rayCastPosition, -transform.up * 0.1f, Color.green);
 
+            return true;
         }
-        return true;
+        Debug.DrawRay(rayCastPosition, -transform.up * 0.1f, Color.red);
+
+        return false;
     }
     public void returnIdleAnimation()
     {
@@ -56,15 +64,17 @@ public class Move : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("Is ground:" + isGrounded());
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            animator.SetBool("attack", true);
+            attackArea.SetActive(true);
+            animator.Play("1_atk", -1, 0f);
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (isGrounded() && Input.GetKeyUp(KeyCode.Space))
         {
             animator.Play("jump", -1, 0f);
-            animator.SetTrigger("idle");
+            rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
             // animator.SetBool("jump", true);
         }
 
@@ -85,7 +95,7 @@ public class Move : MonoBehaviour
 
             if (horizontalInput > 0)
             {
-                Debug.Log("Keep Object " + isFlipped);
+
 
                 if (isFlipped == true)
                 {
@@ -99,7 +109,7 @@ public class Move : MonoBehaviour
             }
             else if (horizontalInput < 0)
             {
-                Debug.Log("Rotate Object " + isFlipped);
+
 
                 if (isFlipped == false)
                 {
