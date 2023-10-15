@@ -11,7 +11,7 @@ public class atkArea_1 : MonoBehaviour
             string s = collider.gameObject.tag;
             Heath heath = collider.GetComponent<Heath>();
             heath.TakeDamage();
-            gameObject.SetActive(false);
+
         }
     }
     void Start()
