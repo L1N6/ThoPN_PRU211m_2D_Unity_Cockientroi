@@ -12,6 +12,11 @@ TagManager:
   - Trap
   - Enemy
   - Death
+  - Crab
+  - Fox
+  - Bee
+  - Tiger
+  - Bear
   - Tree
   layers:
   - Default
@@ -21,7 +26,7 @@ TagManager:
   - Water
   - UI
   - Grounded
-  - 
+  - Canvas
   - 
   - 
   - 

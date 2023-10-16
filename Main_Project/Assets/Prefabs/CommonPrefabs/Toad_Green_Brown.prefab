@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4559419367749917097}
   - component: {fileID: 2028226117078212951}
   - component: {fileID: 6748798906888150676}
-  - component: {fileID: 6608087311277539817}
   m_Layer: 0
   m_Name: Toad_Green_Brown
   m_TagString: Toad
@@ -214,21 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b4383f5aee00740a9e61fd5e2fbed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6608087311277539817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2450239135103828062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b117bcbc4e545884bb99568b981ed3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifes:
-  - {fileID: 0}
-  lifeRemaining: 0
 --- !u!1 &5778017974015713456
 GameObject:
   m_ObjectHideFlags: 0
