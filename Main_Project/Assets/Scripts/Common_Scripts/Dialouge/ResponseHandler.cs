@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResponseHandle : MonoBehaviour
 {
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
+    [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private GameObject sceneTrasition;
 
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;
@@ -27,6 +30,7 @@ public class ResponseHandle : MonoBehaviour
 
     public void ShowResponses(Response[] responses)
     {
+        sceneTrasition.SetActive(false);
         foreach (GameObject button in tempResponseButtons)
         {
             Destroy(button);
@@ -49,7 +53,7 @@ public class ResponseHandle : MonoBehaviour
             responseBoxHeight += responseButtonTemplate.sizeDelta.y;
 
         }
-        
+
 
         responseBox.sizeDelta = new Vector2(responseBox.sizeDelta.x, responseBoxHeight);
         responseBox.gameObject.SetActive(true);
@@ -63,13 +67,16 @@ public class ResponseHandle : MonoBehaviour
             Destroy(button);
         }
 
-        if(responseEvents != null && responseIndex <= responseEvents.Length)
+        if (responseEvents != null && responseIndex <= responseEvents.Length)
         {
-            Debug.Log("Picked Response: " + responseEvents[responseIndex].name);
             responseEvents[responseIndex].OnPickedResponse.Invoke();
+            if (responseEvents[responseIndex].name.Equals("Yes"))
+            {
+                StartCoroutine(TransitionScene());
+            }
         }
 
-        responseEvents= null;
+        responseEvents = null;
 
         if (response.Dialogue)
         {
@@ -82,5 +89,14 @@ public class ResponseHandle : MonoBehaviour
 
         tempResponseButtons.Clear();
         dialogueUI.showDialogue(response.Dialogue);
+
+    }
+
+    private IEnumerator TransitionScene()
+    {
+        sceneTrasition.SetActive(true);
+        transitionAnimator.Play("TransitionEnd");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync(DialogueTrigger.sceneName + "_Scenes");
     }
 }
