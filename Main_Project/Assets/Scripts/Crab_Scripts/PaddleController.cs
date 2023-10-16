@@ -14,8 +14,11 @@ public class PaddleController : MonoBehaviour
 
      Vector2 startPosition;
 
+    private Animator animator;
     private void Start()
     {
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();    
         startPosition = transform.position;
     }
 
@@ -35,7 +38,7 @@ public class PaddleController : MonoBehaviour
         {
             direction = Vector2.zero;
         }
-
+        animator.SetFloat("CrabMove", Mathf.Abs(inputValue));
         rigidBody2D.AddForce(direction * moveSpeed * Time.deltaTime * 100);
 
     }
