@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d4f7493be3a5148bdf17c0bc6070a6, type: 3}
+  m_Name: Crab
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "B\u1EA1n mu\u1ED1n t\xF4i \u0111\u1ED3ng h\xE0nh c\xF9ng b\u1EA1n l\xEAn tr\u1EDDi
+    \u0111\u1EC3 xin m\u01B0a sao?"
+  - "T\xF4i th\u1EA5y b\u1EA1n b\xE9 nh\u1ECF nh\u01B0 n\xE0y l\xE0m sao \u0111\u1EE7
+    s\u1EE9c \u0111\u1EC3 l\xEAn ki\u1EC7n tr\u1EDDi?"
+  - "H\xE3y ch\u1EE9ng t\u1ECF b\u1EA3n th\xE2n m\xECnh c\xF3 th\u1EF1c l\u1EF1c
+    cho t\xF4i xem \u0111i. "
+  - "B\u1EA1n c\xF3 mu\u1ED1n tham gia th\u1EED th\xE1ch c\u1EE7a Cua?"
+  responses:
+  - responseText: Yes
+    dialogue: {fileID: 11400000, guid: 0d9355cb877c11c4f8d34d0ac3f41e0c, type: 2}
+  - responseText: No
+    dialogue: {fileID: 11400000, guid: ba9132f6e9b630b4cabc42ea8083f651, type: 2}

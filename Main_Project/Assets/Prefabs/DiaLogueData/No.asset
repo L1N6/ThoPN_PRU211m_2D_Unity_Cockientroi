@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: No
   m_EditorClassIdentifier: 
   dialogue:
-  - May say no
+  - "R\u1EA5t ti\u1EBFc!!! T\xF4i kh\xF4ng th\u1EC3 \u0111\u1ED3ng h\xE0nh c\xF9ng
+    b\u1EA1n. "
   responses: []
