@@ -9,4 +9,14 @@ public class GameOverScene : MonoBehaviour
     {
         SceneManager.LoadScene("Crab_Scenes");
     }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("Common_Scenes");
+    }
+
+    public void Continue()
+    {
+        SceneManager.LoadScene("Common_Scenes");
+    }
 }
