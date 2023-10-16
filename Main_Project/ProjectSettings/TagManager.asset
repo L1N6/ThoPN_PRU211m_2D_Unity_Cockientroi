@@ -17,6 +17,7 @@ TagManager:
   - Bee
   - Tiger
   - Bear
+  - Tree
   layers:
   - Default
   - TransparentFX
