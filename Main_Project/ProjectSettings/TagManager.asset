@@ -12,16 +12,13 @@ TagManager:
   - Trap
   - Enemy
   - Death
-<<<<<<< HEAD
   - Thunderer
-=======
   - Crab
   - Fox
   - Bee
   - Tiger
   - Bear
   - Tree
->>>>>>> c3ebbeb0aa4ae2b49bd8be23f92d2d6daea2e912
   layers:
   - Default
   - TransparentFX
@@ -34,11 +31,8 @@ TagManager:
   - Explosion
   - Item
   - Grounded
-<<<<<<< HEAD
   - PlatForm
-=======
   - Canvas
->>>>>>> c3ebbeb0aa4ae2b49bd8be23f92d2d6daea2e912
   - 
   - 
   - 
