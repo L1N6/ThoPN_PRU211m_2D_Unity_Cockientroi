@@ -17,7 +17,6 @@ public class DialogueUI : MonoBehaviour
     private void Start()
     {
         CloseDialogueBox();
-        //showDialogue(dialogueObject);
         responseHandle = GetComponent<ResponseHandle>();
         typewritterEffect = GetComponent<TypewritterEffect>();
     }
@@ -63,16 +62,14 @@ public class DialogueUI : MonoBehaviour
         else
         {
             CloseDialogueBox();
-        }
-
-
+        }   
     }
 
     private IEnumerator RunTypingEffect(string dialouge)
     {
         typewritterEffect.Run(dialouge, textLable);
 
-        while(typewritterEffect.isRunning)
+        while(typewritterEffect.IsRunning)
         {
             yield return null;
 
@@ -83,7 +80,7 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
-    private void CloseDialogueBox()
+    public void CloseDialogueBox()
     {
         IsOpen = false;
         dialogueBox.SetActive(false);

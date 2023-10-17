@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Yes
   m_EditorClassIdentifier: 
   dialogue:
-  - May say yes
+  - "H\xE3y b\u1EAFt \u0111\u1EA7u th\xF4i."
   responses: []

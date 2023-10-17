@@ -6,7 +6,7 @@ public class BallController : MonoBehaviour
 {
 
     public new Rigidbody2D rigidbody2D;
-    public float speed = 300;
+    public int speed = 100;
 
     private Vector2 velocity;
 
@@ -27,6 +27,7 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("DeadZone"))
         {
+            Debug.Log("deadzone Tinme");
             audioSource.clip = deadZoneSound;
             audioSource.Play();
             
