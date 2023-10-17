@@ -6,6 +6,11 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
 
+    public void UpdateDialogueObject(DialogueObject dialogueObject)
+    {
+        this.dialogueObject = dialogueObject;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Toad") && collision.TryGetComponent(out ToadMovement toadMovement)) {
@@ -21,15 +26,18 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             {
                 toadMovement.Interactable = null;  
             }
-            toadMovement.Interactable = this;
         }
     }
 
     public void Interact(ToadMovement toadMovement)
     {
-        if(TryGetComponent(out DialogueResponseEvents responseEvents))
+        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>()) 
         {
-            toadMovement.DialogueUI.AddResponseEvents(responseEvents.Events);
+            if(responseEvents.DialogueObject == dialogueObject)
+            {
+                toadMovement.DialogueUI.AddResponseEvents(responseEvents.Events);
+                break;
+            }
         }
         toadMovement.DialogueUI.showDialogue(dialogueObject);
     }
