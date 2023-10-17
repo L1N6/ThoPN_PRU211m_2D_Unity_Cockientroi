@@ -27,7 +27,6 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("DeadZone"))
         {
-            Debug.Log("deadzone Tinme");
             audioSource.clip = deadZoneSound;
             audioSource.Play();
             
