@@ -145,7 +145,7 @@ public class Move : MonoBehaviour
 
         // move character
         transform.position = position;
-        ClampInScreen();
+        // ClampInScreen();
     }
 
     /// <summary>

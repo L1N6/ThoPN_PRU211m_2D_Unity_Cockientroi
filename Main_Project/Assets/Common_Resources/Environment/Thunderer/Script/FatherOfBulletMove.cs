@@ -8,15 +8,22 @@ public class FatherOfBulletMove : MonoBehaviour
     private float maxX = 17f;
     private float minX = -9f;
     [SerializeField] private float count = 0f;
+    private GameObject frog;
+    [SerializeField] private float rotationModifier = 0;
     private Vector3 startPosition;
     private Vector3 controlpoint;
     private Vector3 endPosition;
     private Animator animator;
     private bool explosion = false;
 
+    public void intitalFatherOfBullet(Vector3 destination)
+    {
+        endPosition = destination;
+    }
     void Start()
     {
-        endPosition = new Vector3(9.5f, 3.9f);
+        frog = GameObject.FindGameObjectWithTag("Enemy");
+        //endPosition = new Vector3(9.5f, 3.9f);
         animator = GetComponent<Animator>();
         startPosition = transform.position;
         controlpoint = new Vector3(((transform.position.x + endPosition.x) / 2), 4);
@@ -38,21 +45,34 @@ public class FatherOfBulletMove : MonoBehaviour
         return p;
     }
 
+    private void FixedUpdate()
+    {
+        if (frog != null)
+        {
+            Vector3 vectorToTarget = frog.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, 20 * Time.deltaTime);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
 
 
-        if (transform.position.x >= endPosition.x - 0.05f && explosion == false)
-        {
-            animator.Play("bulletBlast", -1, 0f);
-            explosion = true;
-        }
-        else
-        {
+        //if (Mathf.Abs(transform.position.x - endPosition.x) <= 0.05 && Mathf.Abs(transform.position.y - endPosition.y) <= 0.05 && explosion == false)
+        //{
+        //    //Vector3 directionToTarget = frog.transform.position;
+        //    //Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+        //    //transform.rotation = rotationToTarget;
 
-        }
-        if (count < 1.0f)
+        //}
+        //else
+        //{
+
+        //}
+        if (count <= 1.0f)
         {
 
             count += 1.0f * (Time.deltaTime * 0.4f);
@@ -66,9 +86,14 @@ public class FatherOfBulletMove : MonoBehaviour
         }
         else
         {
+            if (explosion == false)
+            {
+                animator.Play("bulletBlast", -1, 0f);
+                explosion = true;
+            }
             count += Time.deltaTime;
-            if (count >= 1.55f)
-                Destroy(gameObject);
+            if (count >= 1.70f) { Destroy(gameObject); }
+
         }
 
     }
