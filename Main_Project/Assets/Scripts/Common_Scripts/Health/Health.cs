@@ -41,4 +41,12 @@ public class Health : MonoBehaviour
     {
         currenthealth = Mathf.Clamp(currenthealth + value, 0, startingHealth);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Trap"))
+        {
+            TakeDamage(1);
+        }
+    }
 }
