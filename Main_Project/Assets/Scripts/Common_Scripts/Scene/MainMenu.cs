@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,19 +11,25 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        SceneTransitionObject.SetActive(false);
+        StartCoroutine(LoadTransitionSceneStart(1.0f));
     }
     public void PlayGame()
     {
-        StartCoroutine(LoadTransitionScene());
+        StartCoroutine(LoadTransitionSceneEnd());
     }
 
-    private IEnumerator LoadTransitionScene()
+    private IEnumerator LoadTransitionSceneEnd()
     {
         SceneTransitionObject.SetActive(true);
         SceneTransition.Play("TransitionEnd");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync("Common_Scenes");
+    }
+
+    private IEnumerator LoadTransitionSceneStart(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneTransitionObject.SetActive(false);
     }
 
     public void QuitGame()
