@@ -3,14 +3,35 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Ball
+  - DeadZone
+  - Toad
+  - Wall
+  - CheckPoint
+  - Trap
+  - Enemy
+  - Death
+  - Thunderer
+  - Crab
+  - Fox
+  - Bee
+  - Tiger
+  - Bear
+  - Tree
+  - Teleport
+>>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
+<<<<<<< HEAD
   - 
   - 
   - 
@@ -18,6 +39,15 @@ TagManager:
   - 
   - 
   - 
+=======
+  - Stage
+  - Bomb
+  - Explosion
+  - Item
+  - Grounded
+  - PlatForm
+  - Canvas
+>>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
   - 
   - 
   - 
