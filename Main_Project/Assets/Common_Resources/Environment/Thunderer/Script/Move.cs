@@ -15,11 +15,13 @@ public class Move : MonoBehaviour
     // movement support
     const float MoveUnitsPerSecond = 5;
     private Rigidbody2D rb;
+    private Vector3 currentPosition;
     /// <summary>
 	/// Start is called before the first frame update
 	/// </summary>	
     void Start()
     {
+        currentPosition = transform.position;
         attackArea = transform.GetChild(0).gameObject;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -39,6 +41,31 @@ public class Move : MonoBehaviour
         //animator.SetBool("attack", false);
 
         // Transition back to the previous animation state
+    }
+
+    public void MoveLeft()
+    {
+        if (isFlipped == false)
+        {
+
+            // transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        isFlipped = true;
+        currentPosition.x += -1 * MoveUnitsPerSecond * Time.deltaTime;
+        transform.position = currentPosition;
+    }
+    public void MoveRight()
+    {
+        if (isFlipped == true)
+        {
+            //transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        isFlipped = false;
+
+        currentPosition.x += 1 * MoveUnitsPerSecond * Time.deltaTime;
+        transform.position = currentPosition;
     }
 
 
@@ -64,6 +91,7 @@ public class Move : MonoBehaviour
     }
     void Update()
     {
+
         Debug.Log("Is ground:" + isGrounded());
 
         if (Input.GetKeyUp(KeyCode.E))
@@ -84,7 +112,7 @@ public class Move : MonoBehaviour
         }
 
         // move game object as appropriate
-        Vector3 position = transform.position;
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -104,7 +132,7 @@ public class Move : MonoBehaviour
                 }
                 isFlipped = false;
 
-                position.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
+                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
 
             }
             else if (horizontalInput < 0)
@@ -118,7 +146,7 @@ public class Move : MonoBehaviour
                     transform.Rotate(0f, 180f, 0f);
                 }
                 isFlipped = true;
-                position.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
+                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
 
 
             }
@@ -126,7 +154,7 @@ public class Move : MonoBehaviour
             animator.SetBool("run", true);
 
 
-            position.x += horizontalInput * MoveUnitsPerSecond *
+            currentPosition.x += horizontalInput * MoveUnitsPerSecond *
               Time.deltaTime;
         }
 
@@ -135,16 +163,16 @@ public class Move : MonoBehaviour
 
             //animator.SetBool("run", true);
 
-            position.y += verticalInput * MoveUnitsPerSecond *
+            currentPosition.y += verticalInput * MoveUnitsPerSecond *
                  Time.deltaTime;
         }
         if (verticalInput == 0 && horizontalInput == 0)
         {
-            animator.SetBool("run", false);
+            // animator.SetBool("run", false);
         }
 
         // move character
-        transform.position = position;
+
         // ClampInScreen();
     }
 

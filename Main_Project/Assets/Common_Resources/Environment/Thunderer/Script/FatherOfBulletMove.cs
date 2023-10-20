@@ -16,14 +16,14 @@ public class FatherOfBulletMove : MonoBehaviour
     private Vector3 endPosition;
     private Animator animator;
     private bool explosion = false;
-
+    private bool fired = false;
     public void intitalFatherOfBullet(Vector3 destination)
     {
         endPosition = destination;
     }
     void Start()
     {
-        frog = GameObject.FindGameObjectWithTag("Enemy");
+        frog = GameObject.FindGameObjectWithTag("Player");
         //endPosition = new Vector3(9.5f, 3.9f);
         animator = GetComponent<Animator>();
         startPosition = transform.position;
@@ -91,9 +91,14 @@ public class FatherOfBulletMove : MonoBehaviour
             {
                 animator.Play("bulletBlast", -1, 0f);
                 explosion = true;
+
+            }
+            if (fired == false && count >= 1.1)
+            {
+                fired = true;
                 GameObject bulletInstance = Instantiate(childBullet, transform.position, transform.rotation);
                 float zAngle = transform.eulerAngles.z;
-                Vector2 forceDirection = new Vector2(Mathf.Cos((zAngle + 10) * Mathf.Deg2Rad), Mathf.Sin(zAngle * Mathf.Deg2Rad));
+                Vector2 forceDirection = new Vector2(Mathf.Cos((Random.Range(zAngle - 10, zAngle + 10)) * Mathf.Deg2Rad), Mathf.Sin(zAngle * Mathf.Deg2Rad));
                 bulletInstance.GetComponent<Rigidbody2D>().AddForce(forceDirection * 10, ForceMode2D.Impulse);
             }
             count += Time.deltaTime;
