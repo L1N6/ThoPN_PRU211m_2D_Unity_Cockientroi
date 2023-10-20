@@ -19,6 +19,7 @@ TagManager:
   - Tiger
   - Bear
   - Tree
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -33,11 +34,6 @@ TagManager:
   - Grounded
   - PlatForm
   - Canvas
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

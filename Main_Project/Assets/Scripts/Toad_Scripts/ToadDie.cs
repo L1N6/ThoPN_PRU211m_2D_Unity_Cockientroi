@@ -17,7 +17,6 @@ public class ToadDie : MonoBehaviour
         animation = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Death"))
