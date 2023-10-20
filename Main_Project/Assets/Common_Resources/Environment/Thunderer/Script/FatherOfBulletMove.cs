@@ -10,12 +10,13 @@ public class FatherOfBulletMove : MonoBehaviour
     [SerializeField] private float count = 0f;
     private GameObject frog;
     [SerializeField] private float rotationModifier = 0;
+    [SerializeField] GameObject childBullet;
     private Vector3 startPosition;
     private Vector3 controlpoint;
     private Vector3 endPosition;
     private Animator animator;
     private bool explosion = false;
-
+    private float currentAngel;
     public void intitalFatherOfBullet(Vector3 destination)
     {
         endPosition = destination;
@@ -27,6 +28,7 @@ public class FatherOfBulletMove : MonoBehaviour
         animator = GetComponent<Animator>();
         startPosition = transform.position;
         controlpoint = new Vector3(((transform.position.x + endPosition.x) / 2), 4);
+
     }
 
     Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
@@ -52,7 +54,9 @@ public class FatherOfBulletMove : MonoBehaviour
             Vector3 vectorToTarget = frog.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+
             transform.rotation = Quaternion.Slerp(transform.rotation, q, 20 * Time.deltaTime);
+            currentAngel = transform.rotation.z;
         }
     }
 
@@ -88,7 +92,16 @@ public class FatherOfBulletMove : MonoBehaviour
         {
             if (explosion == false)
             {
+                Quaternion randomRotation = Quaternion.AngleAxis(currentAngel, Vector3.forward);
+
+                //transform.rotation = randomRotation;
+
                 animator.Play("bulletBlast", -1, 0f);
+
+                GameObject bulletInstance = Instantiate(childBullet, transform.position, transform.rotation);
+                float zAngle = transform.eulerAngles.z;
+                Vector2 forceDirection = new Vector2(Mathf.Cos(zAngle * Mathf.Deg2Rad), Mathf.Sin(zAngle * Mathf.Deg2Rad));
+                bulletInstance.GetComponent<Rigidbody2D>().AddForce(forceDirection * 10, ForceMode2D.Impulse);
                 explosion = true;
             }
             count += Time.deltaTime;
