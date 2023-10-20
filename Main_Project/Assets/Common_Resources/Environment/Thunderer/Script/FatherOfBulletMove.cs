@@ -9,6 +9,7 @@ public class FatherOfBulletMove : MonoBehaviour
     private float minX = -9f;
     [SerializeField] private float count = 0f;
     private GameObject frog;
+    [SerializeField] GameObject childBullet;
     [SerializeField] private float rotationModifier = 0;
     private Vector3 startPosition;
     private Vector3 controlpoint;
@@ -90,6 +91,10 @@ public class FatherOfBulletMove : MonoBehaviour
             {
                 animator.Play("bulletBlast", -1, 0f);
                 explosion = true;
+                GameObject bulletInstance = Instantiate(childBullet, transform.position, transform.rotation);
+                float zAngle = transform.eulerAngles.z;
+                Vector2 forceDirection = new Vector2(Mathf.Cos((zAngle + 10) * Mathf.Deg2Rad), Mathf.Sin(zAngle * Mathf.Deg2Rad));
+                bulletInstance.GetComponent<Rigidbody2D>().AddForce(forceDirection * 10, ForceMode2D.Impulse);
             }
             count += Time.deltaTime;
             if (count >= 1.70f) { Destroy(gameObject); }
