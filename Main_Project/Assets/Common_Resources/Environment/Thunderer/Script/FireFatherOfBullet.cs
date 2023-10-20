@@ -4,6 +4,7 @@ public class FireFatherOfBullet : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject frog;
     void Start()
     {
 
@@ -18,7 +19,7 @@ public class FireFatherOfBullet : MonoBehaviour
             FatherOfBulletMove FOB = newObject.GetComponent<FatherOfBulletMove>();
             if (FOB != null)
             {
-                FOB.intitalFatherOfBullet(new Vector3(9.5f, 3.9f));
+                FOB.intitalFatherOfBullet(new Vector3(Random.Range(frog.transform.position.x - 4f, frog.transform.position.x + 4f), Random.Range(3.5f, 4.1f)));
             }
         }
     }
