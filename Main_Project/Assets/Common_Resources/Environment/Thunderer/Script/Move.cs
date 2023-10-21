@@ -68,6 +68,17 @@ public class Move : MonoBehaviour
         transform.position = currentPosition;
     }
 
+    public void Jump()
+    {
+        animator.Play("jump", -1, 0f);
+        rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
+    }
+
+    public void roll()
+    {
+        animator.Play("roll", -1, 0f);
+    }
+
 
     public bool isGrounded()
     {
@@ -103,7 +114,7 @@ public class Move : MonoBehaviour
         {
             animator.Play("jump", -1, 0f);
             rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
-            // animator.SetBool("jump", true);
+            animator.SetBool("jump", true);
         }
 
         else

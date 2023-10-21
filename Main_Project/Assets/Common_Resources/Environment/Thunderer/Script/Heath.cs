@@ -13,7 +13,7 @@ public class Heath : MonoBehaviour
         Debug.Log("abc");
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
 
         if (health <= 0)
@@ -23,7 +23,7 @@ public class Heath : MonoBehaviour
         else
         {
             Debug.Log("Heath Lost");
-            health -= 1;
+            health -= damage;
         }
     }
     private void Die()
