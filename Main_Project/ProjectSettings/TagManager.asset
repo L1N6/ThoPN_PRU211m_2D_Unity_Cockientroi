@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
   tags: []
-=======
   tags:
   - Ball
   - DeadZone
@@ -23,7 +21,6 @@ TagManager:
   - Bear
   - Tree
   - Teleport
->>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
   layers:
   - Default
   - TransparentFX
@@ -31,7 +28,6 @@ TagManager:
   - Player
   - Water
   - UI
-<<<<<<< HEAD
   - 
   - 
   - 
@@ -39,7 +35,6 @@ TagManager:
   - 
   - 
   - 
-=======
   - Stage
   - Bomb
   - Explosion
@@ -47,7 +42,6 @@ TagManager:
   - Grounded
   - PlatForm
   - Canvas
->>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
   - 
   - 
   - 
