@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags: []
   tags:
-   - Ball
+  - Ball
   - DeadZone
   - Toad
   - Wall
@@ -20,10 +20,7 @@ TagManager:
   - Tiger
   - Bear
   - Tree
-  - Tiger Child
-  - Dialogue
   - Teleport
-
   - SpiderWeb
   - Bridge
   - Audio
