@@ -20,6 +20,9 @@ TagManager:
   - Bear
   - Tree
   - Teleport
+  - SpiderWeb
+  - Bridge
+  - Audio
   layers:
   - Default
   - TransparentFX

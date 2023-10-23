@@ -38,9 +38,14 @@ public class SwitchPlayer : MonoBehaviour
         }
     }
 
-    private void ResetLockKeyCode()
+    public void ResetLockKeyCode()
     {
         lockKeyCode = false;
+    }
+
+    public void UpdateLockKeyCode()
+    {
+        lockKeyCode = true;
     }
 
     private void changedPlayer(string tag)
