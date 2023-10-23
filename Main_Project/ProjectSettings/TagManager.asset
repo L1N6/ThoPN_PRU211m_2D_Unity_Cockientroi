@@ -24,6 +24,9 @@ TagManager:
   - Dialogue
   - Teleport
 
+  - SpiderWeb
+  - Bridge
+  - Audio
   layers:
   - Default
   - TransparentFX
