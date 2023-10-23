@@ -25,19 +25,12 @@ TagManager:
   - Teleport
 
   layers:
-  - Default
+    - Default
   - TransparentFX
   - Ignore Raycast
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - Stage
   - Bomb
   - Explosion
