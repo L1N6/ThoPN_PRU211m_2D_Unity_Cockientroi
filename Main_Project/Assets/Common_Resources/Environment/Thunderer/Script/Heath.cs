@@ -3,6 +3,7 @@ using UnityEngine;
 public class Heath : MonoBehaviour
 {
     [SerializeField] private int health = 10;
+    public GameOver gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Heath : MonoBehaviour
     }
     private void Die()
     {
+        gameOver.gameOver();
         Debug.Log("I am Dead!");
         Destroy(gameObject);
     }

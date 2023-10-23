@@ -87,11 +87,15 @@ public class ThundererMove : StateMachineBehaviour
     {
         animator.SetTrigger("atk2");
     }
+    public void Attack1(Animator animator)
+    {
+        animator.SetTrigger("atk1");
+    }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("atk2");
+        animator.ResetTrigger("atk1");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
