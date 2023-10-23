@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+  tags: []
   tags:
   - Ball
   - DeadZone
@@ -20,6 +21,11 @@ TagManager:
   - Bear
   - Tree
   - Teleport
+<<<<<<< HEAD
+=======
+  - SpiderWeb
+  - Bridge
+>>>>>>> f451f09de3b8d973c3828b3821426a4dca373195
   - Audio
   layers:
   - Default
@@ -28,6 +34,13 @@ TagManager:
   - Player
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Stage
   - Bomb
   - Explosion

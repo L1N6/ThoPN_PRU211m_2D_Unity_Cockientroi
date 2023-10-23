@@ -61,6 +61,14 @@ public class BeeManagement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            BeeDie();
+        }
+    }
+
     IEnumerator AfterDie(float duration)
     {
         rb.simulated = false;
