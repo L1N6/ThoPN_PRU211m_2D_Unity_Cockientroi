@@ -336,8 +336,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1998493811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1011313327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5720332379645856166, guid: 147f2616bece50547b346dedc06f94c2, type: 3}
@@ -357,7 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 0
   rotationModifier: 0
->>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
 --- !u!1001 &1150127548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,10 +546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5720332379645856166, guid: 147f2616bece50547b346dedc06f94c2, type: 3}
-<<<<<<< HEAD
-  frog: {fileID: 777797131}
-=======
->>>>>>> 8e79156c23c1e09c35e0f93e49bd6495325d391a
 --- !u!1 &1301566031
 GameObject:
   m_ObjectHideFlags: 0
