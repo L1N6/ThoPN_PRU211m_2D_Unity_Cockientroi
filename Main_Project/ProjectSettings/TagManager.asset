@@ -19,6 +19,8 @@ TagManager:
   - Tiger
   - Bear
   - Tree
+  - Tiger Child
+  - Dialogue
   layers:
   - Default
   - TransparentFX
@@ -33,11 +35,6 @@ TagManager:
   - Grounded
   - PlatForm
   - Canvas
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
