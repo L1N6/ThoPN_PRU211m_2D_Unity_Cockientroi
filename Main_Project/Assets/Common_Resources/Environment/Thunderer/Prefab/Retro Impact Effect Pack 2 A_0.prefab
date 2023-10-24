@@ -120,5 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 0
+  childBullet: {fileID: 9075728236778579678, guid: 744f0e4a582723242b436f091d08ce80, type: 3}
   rotationModifier: 0
   childBullet: {fileID: 9075728236778579678, guid: 744f0e4a582723242b436f091d08ce80, type: 3}
