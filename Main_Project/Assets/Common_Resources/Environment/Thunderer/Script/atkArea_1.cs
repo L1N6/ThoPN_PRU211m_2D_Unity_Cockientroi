@@ -9,11 +9,12 @@ public class atkArea_1 : MonoBehaviour
 
     public Vector3 attackOffset;
     public float attackRange = 1f;
+    [SerializeField] private AudioSource audioSource;
     private void Start()
     {
         audioManager = GameObject.FindWithTag("Audio").GetComponent<AudioManager>();
     }
-    public void Attack(int TypeAttack, AudioClip Audio)
+    public void Attack(int TypeAttack)
     {
         switch (TypeAttack)
         {
@@ -22,7 +23,7 @@ public class atkArea_1 : MonoBehaviour
                 attackRange = 1.72f;
                 break;
             case 1:
-                // audioManager.PlaySFX(Audio);
+                audioSource.Play();
                 attackOffset = new Vector3(5.8f, 1.71f, 0);
                 attackRange = 2.45f;
                 break;

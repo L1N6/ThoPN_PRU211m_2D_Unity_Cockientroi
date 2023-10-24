@@ -12,8 +12,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip normalAttack;
     [SerializeField] AudioClip SpAttack;
     [SerializeField] AudioClip bullet;
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(string clip)
     {
-        SFXSource.PlayOneShot(clip);
+        if (clip.Equals("hammerImpact"))
+            SFXSource.PlayOneShot(hammerImpact);
     }
 }
