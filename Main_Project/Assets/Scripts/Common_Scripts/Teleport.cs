@@ -13,6 +13,13 @@ public class Teleport : MonoBehaviour
     public Transform destination;
     public Transform respawnPosition;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Start()
     {
         checkPointPosition = destination.position;
@@ -35,10 +42,12 @@ public class Teleport : MonoBehaviour
     {
         rigidbody2D.simulated = false;
         animation.Play("Portal_In");
+        audioManager.PlaySFX(audioManager.PortalIn);
         StartCoroutine(MoveInPortal());
         yield return new WaitForSeconds(0.5f);
         player.transform.position = checkPointPosition;
         rigidbody2D.velocity = Vector2.zero;
+        audioManager.PlaySFX(audioManager.PortalOut);
         animation.Play("Portal_Out");
         yield return new WaitForSeconds(1f);
         animation.Play("StayToad");
