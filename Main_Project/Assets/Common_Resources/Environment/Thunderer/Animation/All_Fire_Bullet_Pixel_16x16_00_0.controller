@@ -1,18 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
 --- !u!1107 &-5384111229988324768
 AnimatorStateMachine:
-=======
---- !u!1102 &-7302942350895443135
-AnimatorState:
->>>>>>> f451f09de3b8d973c3828b3821426a4dca373195
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_Name: New Layer
   m_ChildStates: []
   m_ChildStateMachines: []
@@ -25,27 +19,6 @@ AnimatorState:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 0}
-=======
-  m_Name: ChildBulletExplode
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87a804fcc3850fb4488d07324758e01e, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
->>>>>>> f451f09de3b8d973c3828b3821426a4dca373195
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -93,13 +66,8 @@ AnimatorStateMachine:
     m_State: {fileID: 3639958151955846831}
     m_Position: {x: 380, y: -80, z: 0}
   - serializedVersion: 1
-<<<<<<< HEAD
     m_State: {fileID: 5997379604325630626}
     m_Position: {x: 475.9927, y: 39.472687, z: 0}
-=======
-    m_State: {fileID: -7302942350895443135}
-    m_Position: {x: 500, y: 10, z: 0}
->>>>>>> f451f09de3b8d973c3828b3821426a4dca373195
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

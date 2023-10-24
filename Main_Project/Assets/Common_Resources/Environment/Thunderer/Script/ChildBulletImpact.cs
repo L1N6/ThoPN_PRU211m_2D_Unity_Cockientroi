@@ -31,8 +31,4 @@ public class ChildBulletImpact : MonoBehaviour
     {
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f451f09de3b8d973c3828b3821426a4dca373195

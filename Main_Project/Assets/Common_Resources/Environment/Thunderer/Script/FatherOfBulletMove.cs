@@ -11,17 +11,13 @@ public class FatherOfBulletMove : MonoBehaviour
     private GameObject frog;
     [SerializeField] GameObject childBullet;
     [SerializeField] private float rotationModifier = 0;
-    [SerializeField] GameObject childBullet;
     private Vector3 startPosition;
     private Vector3 controlpoint;
     private Vector3 endPosition;
     private Animator animator;
     private bool explosion = false;
-<<<<<<< HEAD
     private bool fired = false;
-=======
     private float currentAngel;
->>>>>>> f451f09de3b8d973c3828b3821426a4dca373195
     public void intitalFatherOfBullet(Vector3 destination)
     {
         endPosition = destination;
