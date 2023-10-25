@@ -51,8 +51,6 @@ public class ToadMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D is not attached to the Toad game object.");
         }
-
-
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);

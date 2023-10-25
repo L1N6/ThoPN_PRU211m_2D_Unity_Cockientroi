@@ -77,5 +77,4 @@ public class HitAction : MonoBehaviour
         ToadRigidbody2D.velocity = new Vector2(ToadRigidbody2D.velocity.x, 16f);
         ToadAnimation.Play("HighJumpToad");
     }
-
 }

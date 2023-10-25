@@ -13,13 +13,11 @@ public class ToadDie : MonoBehaviour
     void Start()
     {
         StartPosition = transform.position;
-        rigidbody2D = GetComponent<Rigidbody2D>(); 
+        rigidbody2D = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnCollisionEnter2D(Collision2D collision) { 
         if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Death"))
         {
             Die();

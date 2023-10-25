@@ -3,21 +3,29 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    // Start is called before the first frame update
     // saved for efficiency
+    private GameObject attackArea = default;
     float colliderHalfWidth;
     float colliderHalfHeight;
     public Transform player;
-    public bool isFlipped = false;
+    bool isFlipped = false;
+    [SerializeField] LayerMask layer;
     Animator animator;
     // movement support
     const float MoveUnitsPerSecond = 5;
-
+    private Rigidbody2D rb;
+    private Vector3 currentPosition;
     /// <summary>
 	/// Start is called before the first frame update
 	/// </summary>	
     void Start()
     {
+        currentPosition = transform.position;
+        attackArea = transform.GetChild(0).gameObject;
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        isFlipped = false;
         // save for efficiency
         //BoxCollider2D collider = GetComponent<BoxCollider2D>();
         //colliderHalfWidth = collider.size.x / 2;
@@ -30,72 +38,153 @@ public class Move : MonoBehaviour
     public void OnAttackAnimationEnd()
     {
         // Reset the attack boolean parameter
-        animator.SetBool("attack", false);
+        //animator.SetBool("attack", false);
 
         // Transition back to the previous animation state
+    }
+
+    public void MoveLeft()
+    {
+        if (isFlipped == false)
+        {
+
+            // transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        isFlipped = true;
+        currentPosition.x += -1 * MoveUnitsPerSecond * Time.deltaTime;
+        transform.position = currentPosition;
+    }
+    public void MoveRight()
+    {
+        if (isFlipped == true)
+        {
+            //transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        isFlipped = false;
+
+        currentPosition.x += 1 * MoveUnitsPerSecond * Time.deltaTime;
+        transform.position = currentPosition;
+    }
+
+    public void Jump()
+    {
+        animator.Play("jump", -1, 0f);
+        rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
+    }
+
+    public void roll()
+    {
+        animator.Play("roll", -1, 0f);
+    }
+
+
+    public bool isGrounded()
+    {
+        Vector3 rayCastPosition = transform.position;
+        rayCastPosition.y += 0.1f;
+        RaycastHit2D hitInfo = Physics2D.Raycast(rayCastPosition, -Vector2.up, 0.1f, layer);
+        if (hitInfo.collider != null)
+        {
+            Debug.DrawRay(rayCastPosition, -transform.up * 0.1f, Color.green);
+
+            return true;
+        }
+        Debug.DrawRay(rayCastPosition, -transform.up * 0.1f, Color.red);
+
+        return false;
+    }
+    public void returnIdleAnimation()
+    {
+        animator.SetBool("attack", false);
+        animator.SetBool("jump", false);
     }
     void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        Debug.Log("Is ground:" + isGrounded());
+
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            animator.SetBool("attack", true);
+            attackArea.SetActive(true);
+            animator.Play("1_atk", -1, 0f);
+        }
+        else if (isGrounded() && Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.Play("jump", -1, 0f);
+            rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
+            animator.SetBool("jump", true);
+        }
+
+        else
+        {
+
         }
 
         // move game object as appropriate
-        Vector3 position = transform.position;
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
+
         if (horizontalInput != 0)
         {
-            Vector3 flipped = transform.localScale;
-            flipped.z *= -1f;
+            //Vector3 flipped = transform.localScale;
+            //flipped.z *= -1f;
 
             if (horizontalInput > 0)
             {
-                Debug.Log("Keep Object");
+
 
                 if (isFlipped == true)
                 {
-                    transform.localScale = flipped;
-                    transform.Rotate(0f, 0f, 0f);
+                    //transform.localScale = flipped;
+                    transform.Rotate(0f, 180f, 0f);
                 }
                 isFlipped = false;
+
+                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
 
             }
             else if (horizontalInput < 0)
             {
-                Debug.Log("Rotate Object");
+
 
                 if (isFlipped == false)
                 {
-                    transform.localScale = flipped;
+
+                    // transform.localScale = flipped;
                     transform.Rotate(0f, 180f, 0f);
                 }
                 isFlipped = true;
+                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
+
+
             }
 
             animator.SetBool("run", true);
 
-            position.x += horizontalInput * MoveUnitsPerSecond *
-                Time.deltaTime;
+
+            currentPosition.x += horizontalInput * MoveUnitsPerSecond *
+              Time.deltaTime;
         }
-        else if (verticalInput != 0)
+
+        if (verticalInput != 0)
         {
 
-            animator.SetBool("run", true);
+            //animator.SetBool("run", true);
 
-            position.y += verticalInput * MoveUnitsPerSecond *
-                Time.deltaTime;
+            currentPosition.y += verticalInput * MoveUnitsPerSecond *
+                 Time.deltaTime;
         }
-        else
+        if (verticalInput == 0 && horizontalInput == 0)
         {
-            animator.SetBool("run", false);
+            // animator.SetBool("run", false);
         }
 
         // move character
-        transform.position = position;
-        ClampInScreen();
+
+        // ClampInScreen();
     }
 
     /// <summary>

@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+  tags: []
   tags:
   - Ball
   - DeadZone
@@ -12,12 +13,17 @@ TagManager:
   - Trap
   - Enemy
   - Death
+  - Thunderer
   - Crab
   - Fox
   - Bee
   - Tiger
   - Bear
   - Tree
+  - Teleport
+  - SpiderWeb
+  - Bridge
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -25,17 +31,20 @@ TagManager:
   - Player
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Stage
   - Bomb
   - Explosion
   - Item
   - Grounded
+  - PlatForm
   - Canvas
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
