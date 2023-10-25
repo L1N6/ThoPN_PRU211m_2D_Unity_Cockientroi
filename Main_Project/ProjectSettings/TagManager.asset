@@ -3,42 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ball
-  - DeadZone
-  - Toad
-  - Wall
-  - CheckPoint
-  - Trap
-  - Enemy
-  - Death
-<<<<<<< HEAD
-  - Thunderer
-=======
-  - Crab
-  - Fox
-  - Bee
-  - Tiger
-  - Bear
-  - Tree
->>>>>>> c3ebbeb0aa4ae2b49bd8be23f92d2d6daea2e912
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Stage
-  - Bomb
-  - Explosion
-  - Item
-  - Grounded
-<<<<<<< HEAD
-  - PlatForm
-=======
-  - Canvas
->>>>>>> c3ebbeb0aa4ae2b49bd8be23f92d2d6daea2e912
+  - 
+  - 
   - 
   - 
   - 
@@ -64,21 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: New Layer 1
-    uniqueID: 3709430935
-    locked: 0
-  - name: New Layer 2
-    uniqueID: 1996413203
-    locked: 0
-  - name: BehindBackground
-    uniqueID: 1730136015
-    locked: 0
-  - name: Background
-    uniqueID: 3655200419
-    locked: 0
-  - name: Main
-    uniqueID: 708623337
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

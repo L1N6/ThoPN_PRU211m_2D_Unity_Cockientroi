@@ -6,11 +6,11 @@ public class BallController : MonoBehaviour
 {
 
     public new Rigidbody2D rigidbody2D;
-    public int speed = 100;
-
+    public float speed = 250;
     private Vector2 velocity;
-
     Vector2 startPosition;
+    Vector3 lastVelocity;
+    private bool check = true;
 
     public AudioSource audioSource;
     public AudioClip paddleSound, brickSound, wallSound, deadZoneSound;
@@ -19,8 +19,13 @@ public class BallController : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        
-        ResetBall(); 
+
+        ResetBall();
+    }
+
+    private void Update()
+    {
+        lastVelocity = rigidbody2D.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,10 +34,10 @@ public class BallController : MonoBehaviour
         {
             audioSource.clip = deadZoneSound;
             audioSource.Play();
-            
             FindObjectOfType<CrabGameManager>().LosseHealth();
+            check = false;
         }
-        if (collision.gameObject.GetComponent<PaddleController>())
+        if (collision.gameObject.GetComponent<PaddleController>() && check)
         {
             audioSource.clip = paddleSound;
             audioSource.Play();
@@ -41,21 +46,24 @@ public class BallController : MonoBehaviour
         {
             audioSource.clip = brickSound;
             audioSource.Play();
+            check = true;
         }
         if (collision.transform.CompareTag("Wall"))
         {
             audioSource.clip = wallSound;
             audioSource.Play();
+            check = true;
         }
-        
+
     }
+
 
     public void ResetBall()
     {
         transform.position = startPosition;
         rigidbody2D.velocity = Vector2.zero;
 
-        velocity.x = Random.Range(-1f, 1f);
+        velocity.x = 1;
 
         velocity.y = 1;
 

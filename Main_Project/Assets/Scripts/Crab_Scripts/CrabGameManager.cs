@@ -25,6 +25,7 @@ public class CrabGameManager : MonoBehaviour
     {
         lives--;
         Destroy(heartList[number]);
+
         number++;
         if(lives <= 0)
         {
@@ -35,6 +36,7 @@ public class CrabGameManager : MonoBehaviour
             ResetLevel();
         }
     }
+
 
     private void ResetLevel()
     {
