@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8306973231601485187}
   - component: {fileID: 578370881795485037}
   - component: {fileID: 2035976255365990024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SoldierAnt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -191,13 +191,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5559158172866321357}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5559158172866321357
 Transform:
   m_ObjectHideFlags: 0
@@ -222,13 +222,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3595622495624852505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3595622495624852505
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2911163181752123203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SoldierAntMovingPlatformer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

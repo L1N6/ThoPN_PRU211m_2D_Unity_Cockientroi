@@ -9,7 +9,7 @@ public class ToadMovement : MonoBehaviour
     public Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private new CircleCollider2D collider2D;
+    private new CapsuleCollider2D collider2D;
     private float dirX;
     private float moveSpeed = 7f;
     public float jumpForce = 19f;
@@ -30,7 +30,7 @@ public class ToadMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider2D = GetComponent<CircleCollider2D>();
+        collider2D = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
