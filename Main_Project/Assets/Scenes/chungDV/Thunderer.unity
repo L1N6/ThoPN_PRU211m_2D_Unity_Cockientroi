@@ -755,6 +755,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &509206740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3891932083615750038, guid: 41b7a5adbba3888439c8164efdcc4641, type: 3}
+  m_PrefabInstance: {fileID: 1871198023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &509206748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509206740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2620432c7188be84791fe767958584f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
 --- !u!1001 &575909378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4853,7 +4871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3a006133bca6d4eb7ef7f3d7858172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 509206748}
   totalHealthBar: {fileID: 766629989}
   currentHealthBar: {fileID: 2020893179}
 --- !u!1 &1636275972
@@ -4969,10 +4987,10 @@ RectTransform:
   - {fileID: 1612043945}
   m_Father: {fileID: 1108295707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 353, y: 227}
-  m_SizeDelta: {x: 1795.713, y: 1154.7504}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -607, y: 312}
+  m_SizeDelta: {x: 1795.7129, y: 1154.7504}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702123313
 MonoBehaviour:
@@ -18127,7 +18145,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3891932083615750038, guid: 41b7a5adbba3888439c8164efdcc4641, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 509206748}
   m_SourcePrefab: {fileID: 100100000, guid: 41b7a5adbba3888439c8164efdcc4641, type: 3}
 --- !u!1 &1892539437
 GameObject:
