@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96d4f7493be3a5148bdf17c0bc6070a6, type: 3}
-  m_Name: Test
+  m_Name: Toad
   m_EditorClassIdentifier: 
   dialogue:
-  - dilogue 111111111111111111111111111111111111111111111!!!!!!!!
-  - Helloo!.........................
+  - "T\xF4i \u0111\xE3 ho\xE0n th\xE0nh th\u1EED th\xE1ch c\u1EE7a b\u1EA1n."
+  - "Li\u1EC7u b\u1EA1n c\xF3 th\u1EC3 \u0111i c\xF9ng t\xF4i l\xEAn g\u1EB7p Ng\u1ECDc
+    Ho\xE0ng \u0111\u1EC3 xin m\u01B0a kh\xF4ng ?"
   responses:
   - responseText: Yes
     dialogue: {fileID: 11400000, guid: 0d9355cb877c11c4f8d34d0ac3f41e0c, type: 2}

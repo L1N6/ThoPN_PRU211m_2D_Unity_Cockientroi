@@ -27,13 +27,13 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Toad
+  - Enemy
+  - Bee
+  - Bear
+  - Fox
+  - Tiger
+  - Crab
   - Stage
   - Bomb
   - Explosion

@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4669906840234510066}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4669906840234510066
 Transform:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1539214253933988892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SkullSpiderMovingPlatformer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 5024335630923638006}
   - component: {fileID: 8200259318349909932}
   - component: {fileID: 3301086929706446153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SkullSpider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -256,13 +256,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2186962307548847182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2186962307548847182
 Transform:
   m_ObjectHideFlags: 0
