@@ -3,27 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
   tags:
-  - Ball
-  - DeadZone
-  - Toad
-  - Wall
-  - CheckPoint
-  - Trap
   - Enemy
   - Death
-  - Thunderer
-  - Crab
+  - Tiger Child
+  - Dialogue
+  - Toad
+  - Trap
+  - Teleport
+  - Audio
+  - CheckPoint
+  - Bear
   - Fox
   - Bee
+  - Crab
   - Tiger
-  - Bear
-  - Tree
-  - Teleport
-  - SpiderWeb
-  - Bridge
-  - Audio
+  - GameOverDialogue
+  - FinalDialogue
   layers:
   - Default
   - TransparentFX
@@ -45,13 +41,6 @@ TagManager:
   - Grounded
   - PlatForm
   - Canvas
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

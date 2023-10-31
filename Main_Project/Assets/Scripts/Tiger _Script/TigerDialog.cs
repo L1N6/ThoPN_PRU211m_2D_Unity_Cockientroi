@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TigerDialog : MonoBehaviour
 {
@@ -15,13 +16,31 @@ public class TigerDialog : MonoBehaviour
     private CanvasGroup _group;
     private bool _started;
     GameObject dialogue;
+    public string title;
+    public Health healthCount;
     private void Start()
     {
-        dialogue = GameObject.FindGameObjectWithTag("Dialogue");
+        switch (title)
+        {
+            case "start":
+                dialogue = GameObject.FindGameObjectWithTag("Dialogue");
+                break;
+            case "game over":
+                dialogue = GameObject.FindGameObjectWithTag("GameOverDialogue");
+                dialogue.SetActive(false);
+                break;
+            case "victory":
+                dialogue = GameObject.FindGameObjectWithTag("FinalDialogue");
+                dialogue.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
         _text = GetComponent<TMP_Text>();
         _group = GetComponent<CanvasGroup>();
-        _text.SetText(_dialogueLines[0]);
-        _group.alpha = 1;
+        _group.alpha = 0;
+        _started = true;
     }
 
     private void OnValidate()
@@ -37,16 +56,33 @@ public class TigerDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(title=="game over" && healthCount.currenthealth == 0)
+        {
+            dialogue.SetActive(true);
+        }
+        if (_started)
+        {
+            _lineIndex = 0;
+            _text.SetText(_dialogueLines[_lineIndex]);
+            _group.alpha = 1;
+            _started = false;
+
+        }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            _lineIndex++;
             if (_lineIndex < _dialogueLines.Count)
             {
-                _text.SetText(_dialogueLines[_lineIndex++]);
+                _text.SetText(_dialogueLines[_lineIndex]);
                 _group.alpha = 1;
             }
             else
             {
                 dialogue.SetActive(false);
+                if (title == "game over" || title == "victory")
+                {
+                    SceneManager.LoadScene("Common_Scenes");
+                }
             }
         }
     }

@@ -8,7 +8,6 @@ public class CountTigerChild : MonoBehaviour
 {
     [SerializeField] Text pointText;
     int points = 0;
-
     private void Awake()
     {
         UpdateHUD();
@@ -37,7 +36,7 @@ public class CountTigerChild : MonoBehaviour
         if (collision.gameObject.CompareTag("Tiger Child"))
         {
             points += 1;
-            UpdateHUD() ;
+            UpdateHUD();
         }
     }
 }

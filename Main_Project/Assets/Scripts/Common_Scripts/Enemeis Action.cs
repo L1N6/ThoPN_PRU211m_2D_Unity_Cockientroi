@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemyAI : MonoBehaviour
@@ -10,6 +11,12 @@ public class EnemyAI : MonoBehaviour
     public float speed;
     public string name;
 
+    GameObject player;
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Toad");
+    }
 
     private void Reset()
     {
@@ -81,11 +88,20 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Player")
-    //    {
-    //        FindObjectOfType<LifeCount>().LoseLife();
-    //    }
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (name == "Map")
+        {
+            if (collision.gameObject.tag == "Toad")
+            {
+                Vector3 temp = transform.position;
+                temp.x += speed * Time.deltaTime;
+
+                var rb = GetComponent<Rigidbody2D>();
+                rb.MovePosition(temp);
+                player.transform.position = rb.position;
+            }
+        }
+    }
 }
