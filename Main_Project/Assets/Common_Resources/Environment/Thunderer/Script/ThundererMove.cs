@@ -11,7 +11,7 @@ public class ThundererMove : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Toad");
         thunderer = GameObject.FindGameObjectWithTag("Thunderer");
         rb = animator.GetComponent<Rigidbody2D>();
         move = thunderer.GetComponent<Move>();
@@ -20,15 +20,32 @@ public class ThundererMove : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        int s = thunderer.GetComponent<ThundererAttack>().AttackStrategy();
+
+
+
+
+
+    }
+    public void nextAction(Animator animator)
+    {
+        int s = thunderer.GetComponent<ThundererAttack>().ActionStrategy();
         switch (s)
         {
+            case 0:
+                AttackDistance(3f, animator, "Attack1");
+                break;
             case 1:
                 AttackDistance(5.5f, animator, "Attack3");
                 //Attack3(animator);
                 break;
+            case 2:
+                AttackDistance(5.5f, animator, "SpAttack");
+                break;
+            case 3:
+                //Restreat
+                Retreat(animator);
+                break;
         }
-
     }
 
     public void AttackDistance(float fixedDistance, Animator animator, string typeAttack)
@@ -47,12 +64,12 @@ public class ThundererMove : StateMachineBehaviour
             }
             else if (thunderer.transform.position.x > player.transform.position.x + 0.3f)
             {
-                move.MoveLeft();
+                move.RollLeft();
                 animator.SetBool("run", true);
             }
             else
             {
-
+                move.RollRight();
                 animator.SetBool("run", false);
             }
 
@@ -79,8 +96,9 @@ public class ThundererMove : StateMachineBehaviour
 
     public void Attack3(Animator animator)
     {
-        // animator.SetBool("attack3", true);
+        //animator.SetBool("attack3", true);
         animator.Play("3_atk", -1, 0f);
+
     }
 
     public void Attack2(Animator animator)
@@ -92,10 +110,33 @@ public class ThundererMove : StateMachineBehaviour
         animator.SetTrigger("atk1");
     }
 
+    public void SpAttack(Animator animator)
+    {
+        animator.SetTrigger("sp_atk");
+    }
+
+    public void Retreat(Animator animator)
+    {
+        if (player.transform.position.x < thunderer.transform.position.x)
+        {
+            move.RollRight();
+        }
+        else
+        {
+            move.RollLeft();
+        }
+
+    }
+
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("atk1");
+        //animator.ResetTrigger("atk1");
+        ////animator.ResetTrigger("sp_trigger");
+        //animator.ResetTrigger("atk2");
+        //animator.ResetTrigger("3_atk");
+        //animator.ResetTrigger("roll");
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -1,3 +1,4 @@
+using System.Reflection;
 using UnityEngine;
 
 public class ThundererAttack : MonoBehaviour
@@ -8,15 +9,60 @@ public class ThundererAttack : MonoBehaviour
     Animator animator;
     private float duration;
     private bool animationComplete;
-    public void MoveToThePlayer()
+    bool isInAction = false;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        if (player == null)
+        animationComplete = true;
+        animator = GetComponent<Animator>();
+        // animator.SetBool("run", true);
+
+        move = GetComponent<Move>();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isInAction == false)
         {
-            return;
+            nextAction(animator);
         }
+        //MoveToThePlayer();
+    }
+
+
+
+    public void nextAction(Animator animator)
+    {
+        int s = ActionStrategy();
+        isInAction = true;
+        switch (s)
+        {
+            case 0:
+                AttackDistance(3f, animator, "Attack1");
+                break;
+            case 1:
+                AttackDistance(5.5f, animator, "Attack3");
+                //Attack3(animator);
+                break;
+            case 2:
+                AttackDistance(5.5f, animator, "SpAttack");
+                break;
+            case 3:
+                //Restreat
+                Retreat(animator);
+                break;
+        }
+    }
+
+    public void AttackDistance(float fixedDistance, Animator animator, string typeAttack)
+    {
         Vector3 direction = player.transform.position - transform.forward;
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance > 3.5)
+        if (distance > fixedDistance)
         {
             direction.Normalize();
             if (transform.position.x < player.transform.position.x - 0.3f)
@@ -28,97 +74,78 @@ public class ThundererAttack : MonoBehaviour
             }
             else if (transform.position.x > player.transform.position.x + 0.3f)
             {
-                move.MoveLeft();
+                move.RollLeft();
                 animator.SetBool("run", true);
             }
             else
             {
-
+                move.RollRight();
                 animator.SetBool("run", false);
             }
 
         }
         else
         {
-            defend();
+            MethodInfo methodInfo = this.GetType().GetMethod(typeAttack, BindingFlags.Public | BindingFlags.Instance);
+
+            if (methodInfo != null)
+            {
+                // Invoke the method if found
+                methodInfo.Invoke(this, new object[] { animator });
+            }
+
+            //Attack3(animator);
+            //animator.SetTrigger("atk2");
+            // animator.SetBool("run", false);
+
             //PlayAnimation("defend", 2f);
             //animator.Play("defend", -1, 0f);
         }
+    }
+
+
+    public void Attack3(Animator animator)
+    {
+        //animator.SetBool("attack3", true);
+        animator.Play("3_atk", -1, 0f);
 
     }
 
-    public int AttackStrategy()
+    public void Attack2(Animator animator)
     {
-        return 1;
+        animator.SetTrigger("atk2");
+    }
+    public void Attack1(Animator animator)
+    {
+        animator.SetTrigger("atk1");
     }
 
-    public void attack2()
+    public void SpAttack(Animator animator)
     {
-        animator.SetBool("attack2", true);
-    }
-    public void attack3()
-    {
-        animator.SetBool("attack3", true);
-    }
-    public void spAttack()
-    {
-        animator.SetBool("spAttack", true);
-    }
-    public void defend()
-    {
-        animator.SetBool("defend", true);
-        // animator.Play("defend", -1, 0f);
-
+        animator.SetTrigger("sp_atk");
     }
 
-    void PlayAnimation(string animation, float duration)
+    public void Retreat(Animator animator)
     {
-        if (animationComplete)
+        if (player.transform.position.x < transform.position.x)
         {
-            this.duration = duration;
-            animationComplete = false;
-
-            //  animator.Play(animation, -1, 0f);
+            move.RollRight();
         }
         else
         {
-            this.duration -= Time.deltaTime;
-
+            move.RollLeft();
         }
-        if (duration <= 0)
-        {
-            animationComplete = true;
-            animator.SetBool(animation, false);
-        }
-        // Play the "YourAnimationName" animation
-        // animator.SetTrigger(animation);
 
-        // Wait for the specified duration
-        //yield return new WaitForSeconds(duration);
-
-        // After the duration, transition back to the "Idle" state
-        animator.SetTrigger("Idle");
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public int ActionStrategy()
     {
-        animationComplete = true;
-        animator = GetComponent<Animator>();
-        animator.SetBool("run", true);
-
-        move = GetComponent<Move>();
-        player = GameObject.FindGameObjectWithTag("Player");
-
+        return (int)Random.Range(0, 4);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetIsAction()
     {
-
-        //MoveToThePlayer();
+        isInAction = false;
     }
+
 }
