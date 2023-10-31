@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96d4f7493be3a5148bdf17c0bc6070a6, type: 3}
-  m_Name: Done
+  m_Name: Lose
   m_EditorClassIdentifier: 
   dialogue:
   - "T\xF4i th\u1EA5y b\u1EA1n ch\u01B0a \u0111\u1EE7 tin c\u1EADy \u0111\u1EC3 t\xF4i

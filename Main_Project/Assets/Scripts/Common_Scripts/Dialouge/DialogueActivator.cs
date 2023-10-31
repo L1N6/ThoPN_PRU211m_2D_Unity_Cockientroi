@@ -6,9 +6,9 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
 
-    public void UpdateDialogueObject(DialogueObject dialogueObject)
+    public void UpdateDialogueObject(DialogueObject dialogueLoseObject)
     {
-        this.dialogueObject = dialogueObject;
+        dialogueObject = dialogueLoseObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

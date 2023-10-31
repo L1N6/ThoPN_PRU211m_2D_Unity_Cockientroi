@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Trap"))
+        if ((collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Trap")) && !collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
         }
