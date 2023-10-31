@@ -24,7 +24,7 @@ public class FatherOfBulletMove : MonoBehaviour
     }
     void Start()
     {
-        frog = GameObject.FindGameObjectWithTag("Player");
+        frog = GameObject.FindGameObjectWithTag("Toad");
         //endPosition = new Vector3(9.5f, 3.9f);
         animator = GetComponent<Animator>();
         startPosition = transform.position;

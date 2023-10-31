@@ -27,6 +27,7 @@ public class Move : MonoBehaviour
         currentPosition = transform.position;
         attackArea = transform.GetChild(0).gameObject;
         rb = GetComponent<Rigidbody2D>();
+
         animator = GetComponent<Animator>();
         isFlipped = false;
         // save for efficiency
@@ -55,9 +56,8 @@ public class Move : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
         }
         isFlipped = true;
-
-        currentPosition.x += -1 * MoveUnitsPerSecond * Time.deltaTime;
-        transform.position = currentPosition;
+        // rb.velocity = new Vector2(-1 * MoveUnitsPerSecond, rb.velocity.y);
+        transform.position = new Vector3(transform.position.x + (-1) * MoveUnitsPerSecond * Time.deltaTime, transform.position.y, transform.position.z);
     }
     public void MoveRight()
     {
@@ -68,29 +68,21 @@ public class Move : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
         }
         isFlipped = false;
-
-        currentPosition.x += 1 * MoveUnitsPerSecond * Time.deltaTime;
-        transform.position = currentPosition;
+        //rb.velocity = new Vector2(1 * 10, rb.velocity.y);
+        transform.position = new Vector3(transform.position.x + 1 * MoveUnitsPerSecond * Time.deltaTime, transform.position.y, transform.position.z);
     }
     public void RollRight()
     {
         if (isRolling == false)
         {
             isRolling = true;
-            isFlipped = false;
+            //isFlipped = false;
             animator.Play("roll", -1, 0f);
-            currentPosition.x += 1 * RollUnitPerSecond * Time.deltaTime;
-            transform.position = currentPosition;
-
+            transform.position = new Vector3(transform.position.x + 1 * RollUnitPerSecond * Time.deltaTime, transform.position.y, transform.position.z);
         }
+        //transform.localScale = flipped;
+        transform.Rotate(0f, 180f, 0f);
 
-
-        if (isFlipped == true)
-        {
-
-            //transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-        }
 
 
 
@@ -101,23 +93,22 @@ public class Move : MonoBehaviour
         if (isRolling == false)
         {
             isRolling = true;
-            isFlipped = true;
+            //isFlipped = true;
             animator.Play("roll", -1, 0f);
-            currentPosition.x += -1 * RollUnitPerSecond * Time.deltaTime;
-            transform.position = currentPosition;
+            transform.position = new Vector3(transform.position.x + (-1) * RollUnitPerSecond * Time.deltaTime, transform.position.y, transform.position.z);
 
         }
-        if (isFlipped == false)
-        {
 
-            //transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-        }
+
+        //transform.localScale = flipped;
+        transform.Rotate(0f, 180f, 0f);
+
     }
 
     public void ResetRolling()
     {
         isRolling = false;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     public void Jump()

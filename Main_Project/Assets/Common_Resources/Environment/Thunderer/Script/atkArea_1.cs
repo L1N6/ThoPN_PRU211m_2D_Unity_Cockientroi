@@ -41,7 +41,7 @@ public class atkArea_1 : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            colInfo.GetComponent<Heath>().TakeDamage(1);
+            colInfo.GetComponent<HPControl>().TakeDamage(1);
         }
     }
     //private void OnTriggerEnter2D(Collider2D collider)
