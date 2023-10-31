@@ -26,7 +26,6 @@ public class ToadMovement : MonoBehaviour
     private enum MovementState { stay, shortJump, highJump, fall, tongue };
     void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
         spriteRenderer = GetComponent<SpriteRenderer>();

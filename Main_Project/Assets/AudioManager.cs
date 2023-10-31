@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip Background;
     public AudioClip PortalIn;
     public AudioClip PortalOut;
+    public AudioClip ButtonClick;
+    public AudioClip Collection_Items;
 
     private void Start()
     {
