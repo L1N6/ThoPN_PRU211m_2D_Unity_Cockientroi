@@ -12,8 +12,6 @@ public class BeeManagement : MonoBehaviour
     private new Animator animation;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Health health;
-    
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,13 +22,13 @@ public class BeeManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal");
-        dirY = Input.GetAxisRaw("Vertical"); 
-        if (rb != null)
-        {
-            rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed); 
-        }
-        AnimationUpdate();
+            dirX = Input.GetAxisRaw("Horizontal");
+            dirY = Input.GetAxisRaw("Vertical");
+            if (rb != null)
+            {
+                rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed);
+            }
+            AnimationUpdate();   
     }
 
     private void AnimationUpdate()
@@ -43,7 +41,7 @@ public class BeeManagement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        
+
     }
 
     private void BeeDie()

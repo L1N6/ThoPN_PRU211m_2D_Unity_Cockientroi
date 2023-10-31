@@ -10,15 +10,26 @@ public class MapChange : MonoBehaviour
     [SerializeField] private ToadDie Toad;
     [SerializeField] private Transform SpawnMapPosition;
     [SerializeField] private Animator TransitionMapAnimation;
+    [SerializeField] SwitchPlayer switchPlayerBee;
+    [SerializeField] SwitchPlayer switchPlayerToad;
+    private bool isEnd = false;
+
+    public void UpdateEnd()
+    {
+        isEnd = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Toad") || collision.gameObject.CompareTag("Bee"))
+        if (collision.gameObject.CompareTag("Toad") || (collision.gameObject.CompareTag("Bee") && !isEnd))
         {
+
             rigidbody2D = collision.gameObject.GetComponent<Rigidbody2D>();
             Player = collision.gameObject;
             Bee.UpdateStartPosition(SpawnMapPosition.position);
             Toad.UpdateCheckPoint(SpawnMapPosition.position);
+            switchPlayerBee.UpdateLockKeyCode();
+            switchPlayerToad.UpdateLockKeyCode();
             StartCoroutine(TransitionMap(1.0f));
         }
     }

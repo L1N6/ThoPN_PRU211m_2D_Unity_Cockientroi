@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2987618325575359745}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BatMovingPlatform
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -43,13 +43,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2150243996741876709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2150243996741876709
 Transform:
   m_ObjectHideFlags: 0
@@ -74,13 +74,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8175403330604396666}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8175403330604396666
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1207237772394548524}
   - component: {fileID: 3051761174945489882}
   - component: {fileID: 3810421176888165826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

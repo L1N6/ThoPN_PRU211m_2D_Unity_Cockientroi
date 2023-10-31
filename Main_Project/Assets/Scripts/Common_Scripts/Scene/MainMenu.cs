@@ -13,6 +13,13 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(LoadTransitionSceneStart(1.0f));
     }
+
+    public void NewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        StartCoroutine(LoadTransitionSceneEnd());
+    }
+
     public void PlayGame()
     {
         StartCoroutine(LoadTransitionSceneEnd());
