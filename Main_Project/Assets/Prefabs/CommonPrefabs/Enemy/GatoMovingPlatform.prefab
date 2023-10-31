@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7977914398004019305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7977914398004019305
 Transform:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6675327429716432500}
   - component: {fileID: 8002558017138551545}
   - component: {fileID: 4695856786381926009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gato
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7487679308995612660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GatoMovingPlatform
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -256,13 +256,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8138467342489645266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8138467342489645266
 Transform:
   m_ObjectHideFlags: 0

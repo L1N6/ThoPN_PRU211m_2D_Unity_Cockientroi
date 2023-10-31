@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1790663949190959760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HedgeHogMovingPlatform
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,13 +43,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4467816925135045613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4467816925135045613
 Transform:
   m_ObjectHideFlags: 0
@@ -74,13 +74,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6337118413086371559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6337118413086371559
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6171138553378763392}
   - component: {fileID: 5952598881235047109}
   - component: {fileID: 8414337528093700716}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HedgeHog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
