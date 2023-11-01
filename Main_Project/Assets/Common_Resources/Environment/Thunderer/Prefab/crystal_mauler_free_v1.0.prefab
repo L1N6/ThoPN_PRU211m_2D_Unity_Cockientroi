@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7686694509354257822, guid: ee1362d62d5295745b823a36f1b7c985, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
     m_Bits: 8
   attackOffset: {x: 1.3, y: 1.71, z: 0}
   attackRange: 1.4
+  audioSource: {fileID: 0}
 --- !u!1 &3760744584565475173
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,11 @@ public class atkArea_1 : MonoBehaviour
                 attackOffset = new Vector3(5.8f, 1.71f, 0);
                 attackRange = 2.45f;
                 break;
+            case 2:
+                audioSource.Play();
+                attackOffset = new Vector3(5.56f, 1.96f, 0);
+                attackRange = 3.44f;
+                break;
 
         }
         Vector3 pos = transform.position;
