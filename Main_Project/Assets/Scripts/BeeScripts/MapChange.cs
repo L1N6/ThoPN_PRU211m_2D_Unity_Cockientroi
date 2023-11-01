@@ -12,6 +12,7 @@ public class MapChange : MonoBehaviour
     [SerializeField] private Animator TransitionMapAnimation;
     [SerializeField] SwitchPlayer switchPlayerBee;
     [SerializeField] SwitchPlayer switchPlayerToad;
+    [SerializeField] AudioManager audioManager;
     private bool isEnd = false;
 
     public void UpdateEnd()
@@ -38,9 +39,11 @@ public class MapChange : MonoBehaviour
     {
         rigidbody2D.simulated = false;
         TransitionMapAnimation.Play("TransitionEnd");
+        audioManager.PlaySFX(audioManager.PortalIn);
         yield return new WaitForSeconds(duration);
         Player.transform.position = SpawnMapPosition.position;
         TransitionMapAnimation.Play("TransitionStart");
+        audioManager.PlaySFX(audioManager.PortalOut);
         yield return new WaitForSeconds(duration);
         rigidbody2D.simulated = true;
     }
