@@ -21,7 +21,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currenthealth = Mathf.Clamp(currenthealth - damage,0, startingHealth);
-
         if(currenthealth == 0)
         {
             Debug.Log("Game Over");
@@ -49,4 +48,6 @@ public class Health : MonoBehaviour
             TakeDamage(1);
         }
     }
+
+
 }

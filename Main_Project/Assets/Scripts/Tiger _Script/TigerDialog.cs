@@ -17,7 +17,6 @@ public class TigerDialog : MonoBehaviour
     private bool _started;
     GameObject dialogue;
     public string title;
-    public Health healthCount;
     private void Start()
     {
         switch (title)
@@ -56,10 +55,6 @@ public class TigerDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(title=="game over" && healthCount.currenthealth == 0)
-        {
-            dialogue.SetActive(true);
-        }
         if (_started)
         {
             _lineIndex = 0;
