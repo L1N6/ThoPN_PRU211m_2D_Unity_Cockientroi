@@ -18,6 +18,7 @@ TagManager:
   - CheckPoint
   - Crab
   - Tiger
+  - Beanstalk
   layers:
   - Default
   - TransparentFX

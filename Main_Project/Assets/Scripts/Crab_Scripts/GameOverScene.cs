@@ -10,10 +10,6 @@ public class GameOverScene : MonoBehaviour
     {
         gameManagement = new GameManagement();
     }
-    public void ResetGame()
-    {
-        SceneManager.LoadScene("Crab_Scenes");
-    }
 
     public void QuitGame()
     {
