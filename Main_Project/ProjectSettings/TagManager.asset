@@ -20,6 +20,7 @@ TagManager:
   - Tiger
   - GameOverDialogue
   - FinalDialogue
+  - AI Map
   layers:
   - Default
   - TransparentFX

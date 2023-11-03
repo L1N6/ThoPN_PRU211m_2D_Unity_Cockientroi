@@ -17,6 +17,7 @@ public class TigerDialog : MonoBehaviour
     private bool _started;
     GameObject dialogue;
     public string title;
+    ToadMovement toadMovement;
     private void Start()
     {
         switch (title)
@@ -40,6 +41,7 @@ public class TigerDialog : MonoBehaviour
         _group = GetComponent<CanvasGroup>();
         _group.alpha = 0;
         _started = true;
+        toadMovement = GameObject.FindGameObjectWithTag("Toad").GetComponent<ToadMovement>();
     }
 
     private void OnValidate()
@@ -61,7 +63,7 @@ public class TigerDialog : MonoBehaviour
             _text.SetText(_dialogueLines[_lineIndex]);
             _group.alpha = 1;
             _started = false;
-
+            toadMovement.enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -74,6 +76,7 @@ public class TigerDialog : MonoBehaviour
             else
             {
                 dialogue.SetActive(false);
+                toadMovement.enabled = true;
                 if (title == "game over" || title == "victory")
                 {
                     SceneManager.LoadScene("Common_Scenes");

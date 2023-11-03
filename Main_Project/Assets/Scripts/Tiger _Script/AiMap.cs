@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueControl : MonoBehaviour
+public class AiMap : MonoBehaviour
 {
-    [SerializeField] private Health healthCount;
-    public GameObject tigerDialog;
+    [SerializeField]
+    private List<GameObject> _aiMap;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +15,6 @@ public class DialogueControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthCount.currenthealth == 0)
-        {
-            tigerDialog.SetActive(true);
-        }
+        
     }
 }
