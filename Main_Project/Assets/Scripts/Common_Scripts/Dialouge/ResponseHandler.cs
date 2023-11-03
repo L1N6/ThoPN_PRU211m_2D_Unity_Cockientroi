@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class ResponseHandle : MonoBehaviour
 {
+    private GameObject Toad;
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
     [SerializeField] private Animator transitionAnimator;
     [SerializeField] private GameObject sceneTrasition;
+
 
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;
@@ -21,6 +23,7 @@ public class ResponseHandle : MonoBehaviour
     private void Start()
     {
         dialogueUI = GetComponent<DialogueUI>();
+        Toad = GameObject.FindGameObjectWithTag("Toad");
     }
 
     public void AddResponseEvents(ResponseEvent[] responseEvents)
@@ -70,25 +73,23 @@ public class ResponseHandle : MonoBehaviour
         if (responseEvents != null && responseIndex <= responseEvents.Length)
         {
             responseEvents[responseIndex].OnPickedResponse.Invoke();
-            if (responseEvents[responseIndex].name.Equals("Yes"))
-            {
-                StartCoroutine(TransitionScene());
-            }
+            
         }
-
-        responseEvents = null;
 
         if (response.Dialogue)
         {
             dialogueUI.showDialogue(response.Dialogue);
+            StartCoroutine(YesButton(responseEvents, responseIndex));
         }
         else
         {
             dialogueUI.CloseDialogueBox();
         }
+        responseEvents = null;
 
         tempResponseButtons.Clear();
         dialogueUI.showDialogue(response.Dialogue);
+        
 
     }
 
@@ -98,5 +99,17 @@ public class ResponseHandle : MonoBehaviour
         transitionAnimator.Play("TransitionEnd");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(DialogueTrigger.sceneName + "_Scenes");
+    }
+
+    private IEnumerator YesButton(ResponseEvent[] responseEvents, int responseIndex) {
+        yield return new WaitForSeconds(3);
+        if (responseEvents[responseIndex].name.Equals("Yes"))
+        {
+            PlayerPrefs.SetFloat(GameManagement.ToadPositionX, Toad.transform.position.x);
+            PlayerPrefs.SetFloat(GameManagement.ToadPositionY, Toad.transform.position.y);
+            PlayerPrefs.SetFloat(GameManagement.ToadPositionZ, Toad.transform.position.z);
+            PlayerPrefs.Save();
+            StartCoroutine(TransitionScene());
+        }
     }
 }

@@ -39,9 +39,17 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Toad"))
         {
             isOnRange = true;
-            avatar.SetAvatar(this.tag);
-            DisplayName.SetText(this.tag);
-            sceneName = this.tag;
+            if (tag.Equals("Beanstalk"))
+            {
+                avatar.SetAvatar("Toad");
+                DisplayName.SetText("Toad");
+            }
+            else
+            {
+                avatar.SetAvatar(tag);
+                DisplayName.SetText(tag);
+            }
+            sceneName = tag;
         }
     }
 

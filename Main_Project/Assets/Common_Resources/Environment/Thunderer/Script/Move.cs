@@ -10,10 +10,13 @@ public class Move : MonoBehaviour
     float colliderHalfHeight;
     public Transform player;
     bool isFlipped = false;
+    bool isRolling = false;
+    float animationTimer = 0;
     [SerializeField] LayerMask layer;
     Animator animator;
     // movement support
     const float MoveUnitsPerSecond = 5;
+    const float RollUnitPerSecond = 10;
     private Rigidbody2D rb;
     private Vector3 currentPosition;
     /// <summary>
@@ -52,11 +55,13 @@ public class Move : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
         }
         isFlipped = true;
+
         currentPosition.x += -1 * MoveUnitsPerSecond * Time.deltaTime;
         transform.position = currentPosition;
     }
     public void MoveRight()
     {
+
         if (isFlipped == true)
         {
             //transform.localScale = flipped;
@@ -66,6 +71,53 @@ public class Move : MonoBehaviour
 
         currentPosition.x += 1 * MoveUnitsPerSecond * Time.deltaTime;
         transform.position = currentPosition;
+    }
+    public void RollRight()
+    {
+        if (isRolling == false)
+        {
+            isRolling = true;
+            isFlipped = false;
+            animator.Play("roll", -1, 0f);
+            currentPosition.x += 1 * RollUnitPerSecond * Time.deltaTime;
+            transform.position = currentPosition;
+
+        }
+
+
+        if (isFlipped == true)
+        {
+
+            //transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+
+
+
+    }
+
+    public void RollLeft()
+    {
+        if (isRolling == false)
+        {
+            isRolling = true;
+            isFlipped = true;
+            animator.Play("roll", -1, 0f);
+            currentPosition.x += -1 * RollUnitPerSecond * Time.deltaTime;
+            transform.position = currentPosition;
+
+        }
+        if (isFlipped == false)
+        {
+
+            //transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    public void ResetRolling()
+    {
+        isRolling = false;
     }
 
     public void Jump()
@@ -100,87 +152,83 @@ public class Move : MonoBehaviour
         animator.SetBool("attack", false);
         animator.SetBool("jump", false);
     }
+
+
+
+
+
     void Update()
     {
 
-        Debug.Log("Is ground:" + isGrounded());
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            attackArea.SetActive(true);
-            animator.Play("1_atk", -1, 0f);
-        }
-        else if (isGrounded() && Input.GetKeyUp(KeyCode.Space))
-        {
-            animator.Play("jump", -1, 0f);
-            rb.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
-            animator.SetBool("jump", true);
-        }
-
-        else
-        {
-
-        }
-
-        // move game object as appropriate
-
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (horizontalInput != 0)
-        {
-            //Vector3 flipped = transform.localScale;
-            //flipped.z *= -1f;
-
-            if (horizontalInput > 0)
-            {
+        //Debug.Log("Is ground:" + isGrounded());
 
 
-                if (isFlipped == true)
-                {
-                    //transform.localScale = flipped;
-                    transform.Rotate(0f, 180f, 0f);
-                }
-                isFlipped = false;
-
-                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
-
-            }
-            else if (horizontalInput < 0)
-            {
 
 
-                if (isFlipped == false)
-                {
+        //else
+        //{
 
-                    // transform.localScale = flipped;
-                    transform.Rotate(0f, 180f, 0f);
-                }
-                isFlipped = true;
-                currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
+        //}
+
+        //// move game object as appropriate
+
+        //float horizontalInput = Input.GetAxisRaw("Horizontal");
+        //float verticalInput = Input.GetAxisRaw("Vertical");
+
+        //if (horizontalInput != 0)
+        //{
+        //    //Vector3 flipped = transform.localScale;
+        //    //flipped.z *= -1f;
+
+        //    if (horizontalInput > 0)
+        //    {
 
 
-            }
+        //        if (isFlipped == true)
+        //        {
+        //            //transform.localScale = flipped;
+        //            transform.Rotate(0f, 180f, 0f);
+        //        }
+        //        isFlipped = false;
 
-            animator.SetBool("run", true);
+        //        currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
+
+        //    }
+        //    else if (horizontalInput < 0)
+        //    {
 
 
-            currentPosition.x += horizontalInput * MoveUnitsPerSecond *
-              Time.deltaTime;
-        }
+        //        if (isFlipped == false)
+        //        {
 
-        if (verticalInput != 0)
-        {
+        //            // transform.localScale = flipped;
+        //            transform.Rotate(0f, 180f, 0f);
+        //        }
+        //        isFlipped = true;
+        //        currentPosition.x += horizontalInput * MoveUnitsPerSecond * Time.deltaTime;
 
-            //animator.SetBool("run", true);
 
-            currentPosition.y += verticalInput * MoveUnitsPerSecond *
-                 Time.deltaTime;
-        }
-        if (verticalInput == 0 && horizontalInput == 0)
-        {
-            // animator.SetBool("run", false);
-        }
+        //    }
+
+        //    animator.SetBool("run", true);
+
+
+        //    currentPosition.x += horizontalInput * MoveUnitsPerSecond *
+        //      Time.deltaTime;
+        //}
+
+        //if (verticalInput != 0)
+        //{
+
+        //    //animator.SetBool("run", true);
+
+        //    currentPosition.y += verticalInput * MoveUnitsPerSecond *
+        //         Time.deltaTime;
+        //}
+        //if (verticalInput == 0 && horizontalInput == 0)
+        //{
+        //    // animator.SetBool("run", false);
+        //}
 
         // move character
 

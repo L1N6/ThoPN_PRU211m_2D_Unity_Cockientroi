@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScene : MonoBehaviour
 {
-    public void ResetGame()
+    private GameManagement gameManagement;
+    void Start()
     {
-        SceneManager.LoadScene("Crab_Scenes");
+        gameManagement = new GameManagement();
     }
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("Common_Scenes");
+        gameManagement.UpdateAnimalWinStatus(GameManagement.Animal.Crab.ToString());
+        SceneManager.LoadScene("Common_Scenes");    
     }
 
     public void Continue()

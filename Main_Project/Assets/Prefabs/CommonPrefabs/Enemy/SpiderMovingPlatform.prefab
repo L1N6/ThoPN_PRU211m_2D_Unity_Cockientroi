@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8172775883089278086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_2
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8172775883089278086
 Transform:
   m_ObjectHideFlags: 0
@@ -40,13 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748534801914994344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Waypoint_1
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8748534801914994344
 Transform:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4902099009562194218}
   - component: {fileID: 6903460955268176225}
   - component: {fileID: 6772459302521231278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2699320420853101636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpiderMovingPlatform
   m_TagString: Enemy
   m_Icon: {fileID: 0}

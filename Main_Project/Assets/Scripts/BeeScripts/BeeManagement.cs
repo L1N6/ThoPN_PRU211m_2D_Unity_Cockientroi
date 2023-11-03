@@ -12,8 +12,7 @@ public class BeeManagement : MonoBehaviour
     private new Animator animation;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Health health;
-    
-
+    [SerializeField] GameObject LoseCanvas;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,11 +23,16 @@ public class BeeManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health.currenthealth == 0)
+        {
+            LoseCanvas.SetActive(true);
+            return;
+        }
         dirX = Input.GetAxisRaw("Horizontal");
-        dirY = Input.GetAxisRaw("Vertical"); 
+        dirY = Input.GetAxisRaw("Vertical");
         if (rb != null)
         {
-            rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed); 
+            rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed);
         }
         AnimationUpdate();
     }
@@ -43,7 +47,7 @@ public class BeeManagement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        
+
     }
 
     private void BeeDie()

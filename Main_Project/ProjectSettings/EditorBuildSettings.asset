@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start_Scenes.unity
     guid: 04fee45be978fc94291892ad9cf81b86
+  - enabled: 1
+    path: Assets/Scenes/ChangeThundererScene.unity
+    guid: d0df53e04bd3e2c49bc8d18505f0fa6f
   m_configObjects: {}

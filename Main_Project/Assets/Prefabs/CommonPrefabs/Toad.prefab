@@ -177,7 +177,7 @@ MonoBehaviour:
   jumpForce: 19
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   dialogueUI: {fileID: 0}
 --- !u!114 &220805809982015427
 MonoBehaviour:

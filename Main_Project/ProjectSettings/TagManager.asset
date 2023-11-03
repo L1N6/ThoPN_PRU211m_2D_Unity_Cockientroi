@@ -3,27 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
   tags:
-  - Ball
-  - DeadZone
-  - Toad
-  - Wall
-  - CheckPoint
-  - Trap
-  - Enemy
-  - Death
-  - Thunderer
-  - Crab
-  - Fox
-  - Bee
-  - Tiger
-  - Bear
-  - Tree
   - Teleport
-  - SpiderWeb
+  - Trap
   - Bridge
+  - SpiderWeb
+  - Toad
+  - Bee
+  - Death
   - Audio
+  - Enemy
+  - Bear
+  - Fox
+  - CheckPoint
+  - Crab
+  - Tiger
+  - Beanstalk
   layers:
   - Default
   - TransparentFX
@@ -31,13 +26,13 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Toad
+  - Enemy
+  - Bee
+  - Bear
+  - Fox
+  - Tiger
+  - Crab
   - Stage
   - Bomb
   - Explosion
@@ -45,13 +40,6 @@ TagManager:
   - Grounded
   - PlatForm
   - Canvas
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
