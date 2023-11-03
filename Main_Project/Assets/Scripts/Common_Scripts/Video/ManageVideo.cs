@@ -7,15 +7,25 @@ using UnityEngine.Video;
 public class ManageVideo : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
+    [SerializeField] private string sceneChangeName;
+    [SerializeField] private Animator sceneTransition;
 
-    void Start()
+    private void Start()
     {
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
-    void OnVideoEnd(VideoPlayer vp)
+    private void OnVideoEnd(VideoPlayer vp)
     {
-        SceneManager.LoadScene("Start_Scenes");
+        StartCoroutine(PlayTransitionAndChangeScene());
+    }
+
+    private IEnumerator PlayTransitionAndChangeScene()
+    {
+        sceneTransition.gameObject.SetActive(true);
+        sceneTransition.Play("TransitionEnd");
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(sceneChangeName);
     }
 
 

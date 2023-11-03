@@ -9,10 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Fox_Menu.unity
     guid: 73990550ece9b38479001b1a84211d59
   - enabled: 1
-    path: Assets/Scenes/Fox_Scenes.unity
+    path: Assets/Scenes/hoangTH/Fox_Scenes.unity
     guid: 8afe832f141608242aaedbfdd8a067db
-    path: Assets/Scenes/tungTD/Description.unity
-    guid: a0d507c0fcf5ec84580c5b203e77908c
   - enabled: 1
     path: Assets/Scenes/tungTD/Crab_Scenes.unity
     guid: a38856fe24eba624699fa624a1dde957
@@ -49,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start_Scenes.unity
     guid: 04fee45be978fc94291892ad9cf81b86
+  - enabled: 1
+    path: Assets/Scenes/ChangeThundererScene.unity
+    guid: d0df53e04bd3e2c49bc8d18505f0fa6f
   m_configObjects: {}
