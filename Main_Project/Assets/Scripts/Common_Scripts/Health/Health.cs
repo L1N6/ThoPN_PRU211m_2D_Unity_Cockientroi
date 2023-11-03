@@ -6,14 +6,13 @@ public class Health : MonoBehaviour
 {
     GameObject Toad;
     Rigidbody2D ToadRigidbody2D;
-    private new Animator animation;
     [SerializeField] private float startingHealth;
+    [SerializeField] GameObject LoseCanvas;
     public float currenthealth { get; private set; }
 
     private void Start()
     {
         currenthealth = startingHealth;
-        animation = GetComponent<Animator>();
         Toad = GameObject.FindGameObjectWithTag("Toad");
         ToadRigidbody2D = Toad.GetComponent<Rigidbody2D>();
     }
@@ -23,9 +22,9 @@ public class Health : MonoBehaviour
         currenthealth = Mathf.Clamp(currenthealth - damage,0, startingHealth);
         if(currenthealth == 0)
         {
-            Debug.Log("Game Over");
+            LoseCanvas.SetActive(true);
+            ToadRigidbody2D.simulated = false;
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

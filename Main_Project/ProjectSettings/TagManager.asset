@@ -21,6 +21,7 @@ TagManager:
   - GameOverDialogue
   - FinalDialogue
   - AI Map
+  - Beanstalk
   layers:
   - Default
   - TransparentFX

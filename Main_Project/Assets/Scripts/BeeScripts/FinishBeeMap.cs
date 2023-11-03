@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class FinishBeeMap : MonoBehaviour
 {
+    private GameManagement gameManagement;
     [SerializeField] SwitchPlayer switchPlayer;
     [SerializeField] GameObject BeeDialogue;
     [SerializeField] MapChange mapChange;
-    private GameManagement gameManagement;
+    
     void Start()
     {
         gameManagement = new GameManagement();
@@ -16,17 +17,27 @@ public class FinishBeeMap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Toad"))
+        if (collision.gameObject.CompareTag("Bee"))
+        {
+            mapChange.UpdateEnd();
+        }
+        if(collision.gameObject.CompareTag("Toad") && PlayerPrefs.GetInt("FlowerCount") == 6)
         {
             switchPlayer.UpdateLockKeyCode();
-        }
-        mapChange.UpdateEnd();
-        BeeDialogue.SetActive(true);
+            BeeDialogue.SetActive(true);
+        } 
     }
 
-    public void BackToCommonMap()
+    public void Win()
     {
         gameManagement.UpdateAnimalWinStatus(GameManagement.Animal.Bee.ToString());
         SceneManager.LoadScene("Common_Scenes");
     }
+
+    public void Lose()
+    {
+        gameManagement.UpdateAnimalAfterLoseStatus(GameManagement.AfterLoseStatus.Bee_Waiting.ToString());
+        SceneManager.LoadScene("Common_Scenes");
+    }
+
 }
