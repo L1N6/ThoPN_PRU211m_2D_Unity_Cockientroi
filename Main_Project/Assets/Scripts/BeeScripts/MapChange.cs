@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MapChange : MonoBehaviour
 {
+    private bool isEnd;
     private GameObject Player;
     private new Rigidbody2D rigidbody2D;
+    [SerializeField] private int flowerCondition;
     [SerializeField] private BeeManagement Bee;
     [SerializeField] private ToadDie Toad;
     [SerializeField] private Transform SpawnMapPosition;
@@ -13,8 +15,11 @@ public class MapChange : MonoBehaviour
     [SerializeField] SwitchPlayer switchPlayerBee;
     [SerializeField] SwitchPlayer switchPlayerToad;
     [SerializeField] AudioManager audioManager;
-    private bool isEnd = false;
 
+    private void Start()
+    {
+        isEnd = false;
+    }
     public void UpdateEnd()
     {
         isEnd = true;
@@ -22,16 +27,21 @@ public class MapChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Toad") || (collision.gameObject.CompareTag("Bee") && !isEnd))
+        if (PlayerPrefs.GetInt("FlowerCount") == flowerCondition)
         {
-
-            rigidbody2D = collision.gameObject.GetComponent<Rigidbody2D>();
-            Player = collision.gameObject;
-            Bee.UpdateStartPosition(SpawnMapPosition.position);
-            Toad.UpdateCheckPoint(SpawnMapPosition.position);
-            switchPlayerBee.UpdateLockKeyCode();
-            switchPlayerToad.UpdateLockKeyCode();
-            StartCoroutine(TransitionMap(1.0f));
+            if (collision.gameObject.CompareTag("Toad") || (collision.gameObject.CompareTag("Bee") && !isEnd))
+            {
+                rigidbody2D = collision.gameObject.GetComponent<Rigidbody2D>();
+                Player = collision.gameObject;
+                Bee.UpdateStartPosition(SpawnMapPosition.position);
+                Toad.UpdateCheckPoint(SpawnMapPosition.position);
+                if (isEnd)
+                {
+                    switchPlayerBee.UpdateLockKeyCode();
+                    switchPlayerToad.UpdateLockKeyCode();
+                }
+                StartCoroutine(TransitionMap(1.0f));
+            }
         }
     }
 

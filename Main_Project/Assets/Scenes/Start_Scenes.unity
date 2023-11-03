@@ -3744,6 +3744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneTransition: {fileID: 307480955}
   SceneTransitionObject: {fileID: 307480953}
+  AudioManager: {fileID: 1909587026}
 --- !u!114 &1750475357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4138,8 +4139,8 @@ MonoBehaviour:
   Background: {fileID: 8300000, guid: 657fd9c048a64f84ba3ce8549f275027, type: 3}
   PortalIn: {fileID: 8300000, guid: b3deb5141ddf44d4f9f0125f5bcf4f26, type: 3}
   PortalOut: {fileID: 8300000, guid: 3c8e57e6092ce5041b480a2c2277962d, type: 3}
-  ButtonClick: {fileID: 0}
-  Collection_Items: {fileID: 0}
+  ButtonClick: {fileID: 8300000, guid: 215750fa696c1c0458d5f756da3c5d3d, type: 3}
+  Collection_Items: {fileID: 8300000, guid: 5efe805227f85834e955e14916169c69, type: 3}
 --- !u!4 &1909587027
 Transform:
   m_ObjectHideFlags: 0
