@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChangeThundererScene.unity
     guid: d0df53e04bd3e2c49bc8d18505f0fa6f
+  - enabled: 1
+    path: Assets/Scenes/anNT/Bear.unity
+    guid: 43fab4025bfe2204788fd620855eedac
   m_configObjects: {}
