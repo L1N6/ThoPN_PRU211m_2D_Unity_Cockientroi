@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class FoxGameManager : MonoBehaviour
 {
+    [SerializeField] GameObject winDialog;
     public GameObject[] players;
 
     public void CheckWinState()
@@ -17,7 +18,8 @@ public class FoxGameManager : MonoBehaviour
         }
 
         if (aliveCount <= 1) {
-            Invoke(nameof(NewRound), 3f);
+            //Invoke(nameof(NewRound), 3f);
+            winDialog.SetActive(true);
         }
     }
 
