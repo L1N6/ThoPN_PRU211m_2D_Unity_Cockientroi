@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - "T\xF4i th\u1EA5y b\u1EA1n ch\u01B0a \u0111\u1EE7 tin c\u1EADy \u0111\u1EC3 t\xF4i
-    \u0111i theo."
+    \u0111i theo. B\u1EA1n h\xE3y ch\u1EE9ng t\u1ECF b\u1EA3n th\xE2n m\xECnh \u0111\u1EC3
+    t\xF4i th\u1EA5y thuy\u1EBFt ph\u1EE5c h\u01A1n \u0111i."
   responses: []

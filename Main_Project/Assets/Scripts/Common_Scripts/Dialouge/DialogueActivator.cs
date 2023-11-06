@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private DialogueObject dialogueObjectLose;
 
     public void UpdateDialogueObject(DialogueObject dialogueLoseObject)
     {
@@ -39,6 +40,14 @@ public class DialogueActivator : MonoBehaviour, IInteractable
                 break;
             }
         }
-        toadMovement.DialogueUI.showDialogue(dialogueObject);
+        string animalWaiting = tag + "_Waiting";
+        if (PlayerPrefs.GetInt(animalWaiting) == 0)
+        {
+            toadMovement.DialogueUI.showDialogue(dialogueObject);
+        }
+        else if (PlayerPrefs.GetInt(animalWaiting) == 1)
+        {
+            toadMovement.DialogueUI.showDialogue(dialogueObjectLose);
+        }
     }
 }

@@ -8,15 +8,18 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Animator SceneTransition;
     [SerializeField] private GameObject SceneTransitionObject;
+    [SerializeField] AudioManager AudioManager;
 
     private void Start()
     {
+        AudioManager.PlaySFX(AudioManager.ButtonClick);
         StartCoroutine(LoadTransitionSceneStart(1.0f));
     }
 
     public void NewGame()
     {
         PlayerPrefs.DeleteAll();
+        AudioManager.PlaySFX(AudioManager.ButtonClick);
         StartCoroutine(LoadTransitionSceneEnd());
     }
 

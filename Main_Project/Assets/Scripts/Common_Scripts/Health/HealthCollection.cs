@@ -11,13 +11,26 @@ public class HealthCollection : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    private bool canProcessCollision = true;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Toad"))
+        if (canProcessCollision && collision.gameObject.CompareTag("Toad"))
         {
-            collision.GetComponent<Health>().addHealth(1);
-            audioManager.PlaySFX(audioManager.Collection_Items);
-            gameObject.SetActive(false);
+            StartCoroutine(ProcessCollision(collision.gameObject));
         }
+    }
+
+    private IEnumerator ProcessCollision(GameObject collidedObject)
+    {
+        canProcessCollision = false;
+
+        collidedObject.GetComponent<Health>().addHealth(1);
+        audioManager.PlaySFX(audioManager.Collection_Items);
+        gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.0f); 
+
+        canProcessCollision = true;
     }
 }

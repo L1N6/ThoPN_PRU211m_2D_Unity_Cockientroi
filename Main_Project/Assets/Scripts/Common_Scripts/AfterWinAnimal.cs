@@ -26,13 +26,6 @@ public class AfterWinAnimal : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        else
-        {
-            if (PlayerPrefs.GetInt(GameManagement.TotalGameWin) == 5)
-            {
-                Debug.Log("Ban da chien thang");
-            }
-        }
     }
 
     void Update()
