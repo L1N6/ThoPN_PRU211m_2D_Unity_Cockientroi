@@ -3,6 +3,7 @@ using UnityEngine;
 public class HPControl : MonoBehaviour
 {
     [SerializeField] private int health = 10;
+    [SerializeField] ThundererHeathBar heathBar;
     public GameOver gameOver;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class HPControl : MonoBehaviour
         {
             Debug.Log("Heath Lost");
             health -= damage;
+            heathBar.setValue(health/(float)10);
         }
     }
 
