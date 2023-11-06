@@ -98,7 +98,7 @@ public class ResponseHandle : MonoBehaviour
         sceneTrasition.SetActive(true);
         transitionAnimator.Play("TransitionEnd");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadSceneAsync(DialogueTrigger.sceneName + "_Scenes");
+        SceneManager.LoadSceneAsync(DialogueTrigger.sceneName);
     }
 
     private IEnumerator YesButton(ResponseEvent[] responseEvents, int responseIndex) {

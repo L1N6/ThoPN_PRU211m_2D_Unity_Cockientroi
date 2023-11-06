@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,10 @@ public class GameManagement : MonoBehaviour
     {
         PlayerPrefs.SetInt(animalName, 1);
         PlayerPrefs.SetInt(TotalGameWin, PlayerPrefs.GetInt(TotalGameWin) + 1);
+        foreach (AfterLoseStatus Name in Enum.GetValues(typeof(AfterLoseStatus)))
+        {
+            PlayerPrefs.SetInt(Name.ToString(), 0);
+        }
     }
 
     public void UpdateAnimalAfterLoseStatus(string animalNameWaiting)
