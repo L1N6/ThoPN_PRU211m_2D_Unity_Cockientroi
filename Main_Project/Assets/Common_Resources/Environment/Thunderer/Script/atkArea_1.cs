@@ -6,7 +6,7 @@ public class atkArea_1 : MonoBehaviour
     private int damage = 2;
     private AudioManager audioManager;
     public LayerMask attackMask;
-
+    float immortalTime = 0f;
     public Vector3 attackOffset;
     public float attackRange = 1f;
     [SerializeField] private AudioSource audioSource;
@@ -37,11 +37,11 @@ public class atkArea_1 : MonoBehaviour
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
-
+        if (immortalTime == 0f) { }
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            colInfo.GetComponent<Heath>().TakeDamage(1);
+            colInfo.GetComponent<Health>().TakeDamage(1);
         }
     }
     //private void OnTriggerEnter2D(Collider2D collider)

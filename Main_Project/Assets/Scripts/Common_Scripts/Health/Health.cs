@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -20,7 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currenthealth = Mathf.Clamp(currenthealth - damage, 0, startingHealth);
-        if(currenthealth == 0)
+        if (currenthealth == 0)
         {
             LoseCanvas.SetActive(true);
             ToadRigidbody2D.simulated = false;
