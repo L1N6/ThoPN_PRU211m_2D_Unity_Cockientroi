@@ -8,7 +8,6 @@ public class AfterWinAnimal : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(GameManagement.Animal.Bee.ToString()) == 1 && tag == "Bee")
         {
-            Debug.Log(PlayerPrefs.GetInt(GameManagement.Animal.Bee.ToString()));
             gameObject.SetActive(false);
         }
         else if (PlayerPrefs.GetInt(GameManagement.Animal.Bear.ToString()) == 1 && tag == "Bear")
@@ -26,13 +25,6 @@ public class AfterWinAnimal : MonoBehaviour
         else if (PlayerPrefs.GetInt(GameManagement.Animal.Tiger.ToString()) == 1 && tag == "Tiger")
         {
             gameObject.SetActive(false);
-        }
-        else
-        {
-            if (PlayerPrefs.GetInt(GameManagement.TotalGameWin) == 5)
-            {
-                Debug.Log("Ban da chien thang");
-            }
         }
     }
 
