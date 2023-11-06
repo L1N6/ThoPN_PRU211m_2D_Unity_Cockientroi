@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Heath : MonoBehaviour
+public class HPControl : MonoBehaviour
 {
     [SerializeField] private int health = 10;
     public GameOver gameOver;
@@ -26,6 +26,11 @@ public class Heath : MonoBehaviour
             Debug.Log("Heath Lost");
             health -= damage;
         }
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
     private void Die()
     {

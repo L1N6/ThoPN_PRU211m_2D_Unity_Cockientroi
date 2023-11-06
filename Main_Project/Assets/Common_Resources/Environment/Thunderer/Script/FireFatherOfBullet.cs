@@ -10,7 +10,7 @@ public class FireFatherOfBullet : MonoBehaviour
 
     }
 
-    public void FireButtet()
+    public void FireBullet()
     {
         GameObject newObject = Instantiate(bullet, transform.position, Quaternion.identity);
         FatherOfBulletMove FOB = newObject.GetComponent<FatherOfBulletMove>();
