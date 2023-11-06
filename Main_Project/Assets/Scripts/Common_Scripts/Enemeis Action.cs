@@ -10,13 +10,8 @@ public class EnemyAI : MonoBehaviour
     int idChangeValue = 1;
     public float speed;
     public string name;
-    GameObject player;
     // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Toad");
-    }
-
+    
     private void Reset()
     {
         Init();
@@ -84,30 +79,6 @@ public class EnemyAI : MonoBehaviour
                 idChangeValue = 1;
             //Áp dụng thay đổi cho vị trí
             nextID += idChangeValue;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (name == "Map")
-        {
-            Transform goalPoint = points[nextID];
-            if (collision.gameObject.tag == "AI Map")
-            {
-                player.transform.position = Vector2.MoveTowards(player.transform.position, goalPoint.position, speed * Time.deltaTime);
-            }
-            if (Vector2.Distance(transform.position, goalPoint.position) < 1f)
-            {
-                //Check vị trí cuối (thay đổi idChangeValue -1)
-                if (nextID == points.Count - 1)
-                    idChangeValue = -1;
-                //Check vị trí xuất phát (thay đổi idChangeValue +1)
-                if (nextID == 0)
-                    idChangeValue = 1;
-                //Áp dụng thay đổi cho vị trí
-                nextID += idChangeValue;
-            }
         }
     }
 }

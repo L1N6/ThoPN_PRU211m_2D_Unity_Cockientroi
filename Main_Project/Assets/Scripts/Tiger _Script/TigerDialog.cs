@@ -18,6 +18,7 @@ public class TigerDialog : MonoBehaviour
     GameObject dialogue;
     public string title;
     ToadMovement toadMovement;
+    private GameManagement gameManagement = new GameManagement();
     private void Start()
     {
         switch (title)
@@ -27,10 +28,6 @@ public class TigerDialog : MonoBehaviour
                 break;
             case "game over":
                 dialogue = GameObject.FindGameObjectWithTag("GameOverDialogue");
-                dialogue.SetActive(false);
-                break;
-            case "victory":
-                dialogue = GameObject.FindGameObjectWithTag("FinalDialogue");
                 dialogue.SetActive(false);
                 break;
             default:
@@ -77,8 +74,9 @@ public class TigerDialog : MonoBehaviour
             {
                 dialogue.SetActive(false);
                 toadMovement.enabled = true;
-                if (title == "game over" || title == "victory")
+                if (title == "game over")
                 {
+                    gameManagement.UpdateAnimalAfterLoseStatus(GameManagement.Animal.Tiger.ToString());
                     SceneManager.LoadScene("Common_Scenes");
                 }
             }

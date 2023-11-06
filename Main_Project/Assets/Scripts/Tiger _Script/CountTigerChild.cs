@@ -8,6 +8,15 @@ public class CountTigerChild : MonoBehaviour
 {
     [SerializeField] Text pointText;
     int points = 0;
+    GameObject Toad;
+    Rigidbody2D ToadRigidbody2D;
+
+    private void Start()
+    {
+        Toad = GameObject.FindGameObjectWithTag("Toad");
+        ToadRigidbody2D = Toad.GetComponent<Rigidbody2D>();
+    }
+
     private void Awake()
     {
         UpdateHUD();
@@ -31,12 +40,21 @@ public class CountTigerChild : MonoBehaviour
         pointText.text = points.ToString();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Tiger Child"))
+        if (collision.gameObject.CompareTag("Tiger Child") && !(ToadRigidbody2D.velocity.y < -0.5f))
         {
-            points += 1;
+            points++;
             UpdateHUD();
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Tiger Child") && !(ToadRigidbody2D.velocity.y < -0.5f))
+    //    {
+    //        points++;
+    //        UpdateHUD();
+    //    }
+    //}
 }

@@ -25,6 +25,14 @@ public class TigerManagement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Toad"))
+        {
+            StartCoroutine(CountTigerChilds());
+        }
+    }
+
     private IEnumerator CountTigerChilds()
     {
         TigerAnimation.SetTrigger("destroy");
