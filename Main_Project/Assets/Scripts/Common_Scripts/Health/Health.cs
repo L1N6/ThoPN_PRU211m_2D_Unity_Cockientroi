@@ -26,25 +26,46 @@ public class Health : MonoBehaviour
             ToadRigidbody2D.simulated = false;
         }
     }
+    public void addHealth(float value)
+    {
+        if(currenthealth == startingHealth)
+        {
+            return;
+        }
+        currenthealth = Mathf.Clamp(currenthealth + value, 0, startingHealth);
+    }
+
+    private bool canProcessCollision = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !(ToadRigidbody2D.velocity.y < -0.5f))
+        if (canProcessCollision)
         {
-            TakeDamage(1);
+            StartCoroutine(ProcessCollision(collision.gameObject));
         }
-    }
-
-    public void addHealth(float value)
-    {
-        currenthealth = Mathf.Clamp(currenthealth + value, 0, startingHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Trap")) && !collision.gameObject.CompareTag("Enemy"))
+        if (canProcessCollision)
         {
+            StartCoroutine(ProcessCollision(collision.gameObject));
+        }
+    }
+
+    private IEnumerator ProcessCollision(GameObject collidedObject)
+    {
+        canProcessCollision = false;
+
+        if (collidedObject.CompareTag("Death") || collidedObject.CompareTag("Trap") ||
+            (collidedObject.CompareTag("Enemy") && !(ToadRigidbody2D.velocity.y < -0.5f)))
+        {
+            Debug.Log("Collision or Trigger 2D");
             TakeDamage(1);
         }
+
+        yield return new WaitForSeconds(0.2f); 
+
+        canProcessCollision = true;
     }
 }
