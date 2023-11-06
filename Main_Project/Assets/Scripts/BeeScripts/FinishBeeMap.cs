@@ -8,6 +8,7 @@ public class FinishBeeMap : MonoBehaviour
     private GameManagement gameManagement;
     [SerializeField] SwitchPlayer switchPlayer;
     [SerializeField] GameObject BeeDialogue;
+    [SerializeField] GameObject Guide;
     [SerializeField] MapChange mapChange;
     
     void Start()
@@ -23,6 +24,7 @@ public class FinishBeeMap : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Toad") && PlayerPrefs.GetInt("FlowerCount") == 6)
         {
+            Guide.SetActive(false);
             switchPlayer.UpdateLockKeyCode();
             BeeDialogue.SetActive(true);
         } 
