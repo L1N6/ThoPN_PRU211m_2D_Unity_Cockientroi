@@ -51,22 +51,22 @@ public class CountTigerChild : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canProcessCollision)
+         if (canProcessCollision && collision.gameObject.CompareTag("Tiger Child") && !(ToadRigidbody2D.velocity.y < -0.5f))
         {
-            StartCoroutine(ProcessCollision(collision.gameObject));
+            StartCoroutine(ProcessCollision());
         }
     }
 
-    private IEnumerator ProcessCollision(GameObject collidedObject)
+    private IEnumerator ProcessCollision()
     {
         canProcessCollision = false;
 
-        if (collidedObject.gameObject.CompareTag("Tiger Child") && !(ToadRigidbody2D.velocity.y < -0.5f))
-        {
+        //if (collidedObject.gameObject.CompareTag("Tiger Child") && !(ToadRigidbody2D.velocity.y < -0.5f))
+        //{
             Debug.Log("Collision or Trigger 2D");
             points++;
             UpdateHUD();
-        }
+        //}
 
         yield return new WaitForSeconds(0.2f);
 

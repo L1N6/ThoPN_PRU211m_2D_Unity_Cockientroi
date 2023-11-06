@@ -44,10 +44,7 @@ public class FinalPoint : MonoBehaviour
         animation.Play("Portal_In");
         audioManager.PlaySFX(audioManager.PortalIn);
         yield return new WaitForSeconds(0.5f);
-        player.transform.position = checkPointPosition;
-        rigidbody2D.velocity = Vector2.zero;
-        audioManager.PlaySFX(audioManager.PortalOut);
-        yield return new WaitForSeconds(1f);
+
         SceneManager.LoadScene("Common_Scenes");
     }
 }

@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/chungDV/Thunderer.unity
     guid: a41785450138d7140b206e923a484064
   - enabled: 1
-    path: Assets/Scenes/duongTV/Tiger_Scenes.unity
+    path: Assets/Scenes/duongTV/Tiger.unity
     guid: adeb377afc6c4d44c98cde520879622a
   - enabled: 1
     path: Assets/Scenes/hoangTH/Fox_Scenes.unity
