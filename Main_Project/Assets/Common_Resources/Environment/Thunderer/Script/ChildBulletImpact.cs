@@ -13,11 +13,13 @@ public class ChildBulletImpact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            rb.velocity = Vector3.zero;
-            bulletAnimator.Play("ChildBulletExplode", -1, 0f);
 
+        rb.velocity = Vector3.zero;
+        bulletAnimator.Play("ChildBulletExplode", -1, 0f);
+
+        if (collision.gameObject.CompareTag("Toad"))
+        {
+            collision.GetComponent<Health>().TakeDamage(1);
         }
     }
     private void destroyBullet()

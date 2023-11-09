@@ -24,7 +24,7 @@ public class FatherOfBulletMove : MonoBehaviour
     }
     void Start()
     {
-        frog = GameObject.FindGameObjectWithTag("Player");
+        frog = GameObject.FindGameObjectWithTag("Toad");
         //endPosition = new Vector3(9.5f, 3.9f);
         animator = GetComponent<Animator>();
         startPosition = transform.position;
@@ -110,6 +110,8 @@ public class FatherOfBulletMove : MonoBehaviour
             {
                 fired = true;
                 GameObject bulletInstance = Instantiate(childBullet, transform.position, transform.rotation);
+                bulletInstance.layer = 6;
+
                 float zAngle = transform.eulerAngles.z;
                 Vector2 forceDirection = new Vector2(Mathf.Cos((Random.Range(zAngle - 10, zAngle + 10)) * Mathf.Deg2Rad), Mathf.Sin(zAngle * Mathf.Deg2Rad));
                 bulletInstance.GetComponent<Rigidbody2D>().AddForce(forceDirection * 10, ForceMode2D.Impulse);
