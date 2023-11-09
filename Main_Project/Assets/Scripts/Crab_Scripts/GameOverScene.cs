@@ -19,6 +19,7 @@ public class GameOverScene : MonoBehaviour
 
     public void Continue()
     {
+        gameManagement.UpdateAnimalAfterLoseStatus(GameManagement.AfterLoseStatus.Crab_Waiting.ToString());
         SceneManager.LoadScene("Common_Scenes");
     }
 }

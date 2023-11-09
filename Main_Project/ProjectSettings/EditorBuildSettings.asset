@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChangeThundererScene.unity
     guid: d0df53e04bd3e2c49bc8d18505f0fa6f
+  - enabled: 1
+    path: Assets/Scenes/tungTD/Crab.unity
+    guid: a0d507c0fcf5ec84580c5b203e77908c
   m_configObjects: {}

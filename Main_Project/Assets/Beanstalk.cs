@@ -7,7 +7,7 @@ public class Beanstalk : MonoBehaviour
     [SerializeField] GameObject BeanstalkLarge;
     void Start()
     {
-        PlayerPrefs.SetInt(GameManagement.TotalGameWin, 5);
+        
     }
 
     void Update()
