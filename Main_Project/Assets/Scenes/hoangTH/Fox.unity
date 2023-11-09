@@ -435,7 +435,22 @@ MonoBehaviour:
   PortalWin: {fileID: 1228339274}
   players:
   - {fileID: 933875586}
-  enemys: []
+  enemys:
+  - {fileID: 1482745402}
+  - {fileID: 1529669826}
+  - {fileID: 293916191}
+  - {fileID: 399433548}
+  - {fileID: 321412269}
+--- !u!1 &293916191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
+  m_PrefabInstance: {fileID: 1974777604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &321412269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
+  m_PrefabInstance: {fileID: 1442133450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365004804
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +585,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365004804}
   m_CullTransparentMesh: 1
+--- !u!1 &399433548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
+  m_PrefabInstance: {fileID: 978254156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +652,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.717115
+  orthographic size: 7.58397
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -789,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057722988101467688, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_LocalScale.x
@@ -1160,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057722988101467688, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_LocalScale.x
@@ -2548,7 +2568,12 @@ MonoBehaviour:
   PortalWin: {fileID: 1228339274}
   players:
   - {fileID: 933875586}
-  enemys: []
+  enemys:
+  - {fileID: 1482745402}
+  - {fileID: 1529669826}
+  - {fileID: 293916191}
+  - {fileID: 399433548}
+  - {fileID: 321412269}
 --- !u!4 &1236119922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2459089838712094758, guid: 3de831e393039cb43a9a04cf611be552, type: 3}
@@ -2905,11 +2930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5879614341149993120, guid: 6bdbecbdf34cd67488978d9895d00820, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.33
+      value: -13.16
       objectReference: {fileID: 0}
     - target: {fileID: 5879614341149993120, guid: 6bdbecbdf34cd67488978d9895d00820, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.79
+      value: 5.84
       objectReference: {fileID: 0}
     - target: {fileID: 5879614341149993120, guid: 6bdbecbdf34cd67488978d9895d00820, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3131,7 +3156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057722988101467688, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_LocalScale.x
@@ -3600,6 +3625,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1529669826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
+  m_PrefabInstance: {fileID: 544174312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594877514
 GameObject:
   m_ObjectHideFlags: 0
@@ -8535,10 +8565,10 @@ RectTransform:
   - {fileID: 365004805}
   m_Father: {fileID: 1502236033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 209, y: -137}
-  m_SizeDelta: {x: 198.929, y: 22.841}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -99.46451, y: 11.420502}
+  m_SizeDelta: {x: 198.92902, y: 22.841003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1605214918
 MonoBehaviour:
@@ -8664,7 +8694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199771763917386606, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057722988101467688, guid: 98e27fe2538d8e8468d46a34d859c977, type: 3}
       propertyPath: m_LocalScale.x

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Fox_Menu.unity
+    path: Assets/Scenes/hoangTH/Fox_Menu.unity
     guid: 73990550ece9b38479001b1a84211d59
   - enabled: 1
     path: Assets/Scenes/hoangTH/Fox.unity
