@@ -31,7 +31,7 @@ public class FoxPortal : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         player.transform.position = destination.position;
         playerRb.velocity=Vector2.zero;
-        anim.Play("Portal_Out");
+        anim.Play("Portal_out");
         yield return new WaitForSeconds(0.5f);
         playerRb.simulated = true;
     }
