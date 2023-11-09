@@ -68,6 +68,10 @@ public class MovementController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Explosion")) {
             DeathSequence();
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Dog"))
+        {
+            DeathSequence();
+        }
     }
 
     private void DeathSequence()
