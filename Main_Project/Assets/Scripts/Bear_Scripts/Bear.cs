@@ -13,8 +13,12 @@ public class Bear : MonoBehaviour
     public int currentLives;
     public float speed = 4f;
     public bool isAlive;
+    bool isMoving;
+    private GameManagement gameManagement = new GameManagement();
     void Start()
     {
+        Debug.Log("Start");
+        isMoving = false;
         isAlive = true;
         isFacingRight = true;
         currentTreeIndex = 1;
@@ -24,19 +28,29 @@ public class Bear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (isAlive)
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && currentTreeIndex != 1)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                currentTreeIndex -= 1;
-                move(arr[currentTreeIndex]);
+                Debug.Log("Space pressed");
+                isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && currentTreeIndex != 6)
+            if (isMoving)
             {
-                currentTreeIndex += 1;
-                move(arr[currentTreeIndex]);
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && currentTreeIndex != 1)
+                {
+                    currentTreeIndex -= 1;
+                    move(arr[currentTreeIndex]);
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && currentTreeIndex != 6)
+                {
+                    currentTreeIndex += 1;
+                    move(arr[currentTreeIndex]);
+                }
             }
+            
         }
         
 
@@ -72,6 +86,11 @@ public class Bear : MonoBehaviour
         GameObject enemy = collision.gameObject;
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
             Destroy(enemy);
             if(currentLives == 3)
             {
@@ -89,22 +108,34 @@ public class Bear : MonoBehaviour
             Debug.Log("Enemy: " + currentLives);
             if(currentLives == 0)
             {
+                AudioSource audioSource1 = GetComponents<AudioSource>()[1];
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
                 isAlive = false;
                 myBody.gravityScale = 1f;
                 boxCollider2D.isTrigger = true;
+                
                 Invoke("DelayedLoadScene", 1f);
             }
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
-            SceneManager.LoadScene("GameWin");
+            AudioSource audioSource = GetComponents<AudioSource>()[2];
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+            gameManagement.UpdateAnimalWinStatus(GameManagement.Animal.Bear.ToString());
+            SceneManager.LoadScene("Common_Scenes");
         }
     }
     void DelayedLoadScene()
     {
-        Debug.Log("end");
-        SceneManager.LoadScene("EndScene");
+        gameManagement.UpdateAnimalAfterLoseStatus(GameManagement.Animal.Bear.ToString());
+        SceneManager.LoadScene("Common_Scenes");
     }
 
 }
